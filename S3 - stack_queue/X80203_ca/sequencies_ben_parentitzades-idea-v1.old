@@ -1,0 +1,30 @@
+// Preliminars: seqüència ben parentitzada és:
+//  - tot prefix de s té més o igual parèntesis d'obrir que de tancar
+//  - s en total té la mateixa quantitat de parèntesis d'obrir que de tancar
+//  Entrada: nombre arbitrari de casos, un per línia, de strings ben parentitzats
+//  Sortida: mateix string, però afegint darrere de cada parèntesis un número:
+//    cada parèntesi d'obrir està identificat començant per l'1 i creixent d'un
+//    en un, i els seus corresponents parèntesis de tancar estan identificat
+//    pel mateix número
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main()
+{
+  string str;
+  // stack<char> open;
+  // stack<char> close;
+  while (cin >> str)
+  {
+    int sumop = 0, sumcl = 0;
+    for (int i = 0; i < str.length(); ++i)
+    {
+      cout << str[i];
+
+      if (str[i] == '(') { ++sumop, cout << sumop; }
+      else { cout << sumop - sumcl; ++sumcl; }
+    }
+    cout << endl;
+  }
+}
