@@ -16,7 +16,7 @@ objects involved it will be easier for us to find and correct it.
 ## Makefile
 (see info_Makefile.txt)
 
-## Stack (template <class T> class stack)
+## Stack `template <class T> class stack`
 Linear structure containing T-type elements and which allows you to query and 
 remove only the last added element. The time cost of all operations is constant,
 except for the copy and the destructor, which have linear cost with respect to the
@@ -56,7 +56,7 @@ take into account the cost of the copy or delete each object).\
 // Pre: True\
 // Post: The result is the number of elements of the implicit parameter
 
-## Queue
+## Queue `template <class T> class queue`
 Linear structure containing T-type elements and which allows you to query and
 delete only the first element added. The time cost of all operations is constant,
 except for the copy and the destructor, which have linear cost with respect to the
