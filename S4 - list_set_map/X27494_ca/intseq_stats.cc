@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void recalculate(list<int>& l, int n, int& max, int& min, int& sum)
+void erase_elem(list<int>& l, int n, int& max, int& min, int& sum)
 {
   bool found = false;
   list<int>::iterator it = l.begin();
@@ -17,7 +17,7 @@ void recalculate(list<int>& l, int n, int& max, int& min, int& sum)
       found = true;
     } else ++it;
     // it = l.erase(it) automatically moves it to the next, so we just have
-    // to ++it; in the other cases (if not gives error in the end())
+    // to ++it in the other cases (if not gives error in the end())
   }
 
   if (found) sum -= n;
@@ -37,21 +37,23 @@ int main()
 {
   list<int> l;
   int c, n;
-  int sum = 0, max = 0, min = -1;
+  int sum = 0;
+  int max, min;
   while (cin >> c >> n and (c != 0 and n != 0)) {
     if (c == -1) {
-      list<int>::iterator it = l.end();
-      l.insert(it, n);
-      max = std::max(n, max);
-      if (min > 0) min = std::min(n, min);
-      else min = n; // just for first iteration
+      if (l.empty()) min = max = n; // just for first iteration
+      else {
+        max = std::max(n, max);
+        min = std::min(n, min);
+      }
+      l.insert(l.end(), n); // same as l.push_back(n);
       sum += n;
     }
     else if (c == -2 and not l.empty()) {
-      recalculate(l, n, max, min, sum);
+      erase_elem(l, n, max, min, sum);
     }
 
-    if (not l.empty()) cout << min << ' ' << max << ' ' << double(sum)/double(l.size()) << endl;
+    if (not l.empty()) cout << min << ' ' << max << ' ' << double(sum)/l.size() << endl;
     else cout << '0' << endl;
   }
 }

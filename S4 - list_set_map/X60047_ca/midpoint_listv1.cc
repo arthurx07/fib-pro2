@@ -8,19 +8,9 @@ void write_error()
   cout << "error" << endl;
 }
 
-// int get_mid_value(const list<int>& l)
-// {
-//   list<int>::const_iterator cit = l.cbegin();
-//   for (int j = 0; cit != l.cend(); ++cit, ++j) {
-//     if (j == (int(l.size())/2)) return *cit;
-//   }
-//   return -1;
-// }
-
 int main()
 {
   list<int> l;
-  list<int>::iterator it = l.begin();
 
   string s;
   while (cin >> s) {
@@ -44,9 +34,9 @@ int main()
     }
     else if (s == "get_mid_value") {
       if (int(l.size())%2 == 1) {
-        // int mid = get_mid_value(l);
-        // cout << mid << endl;
-        // cout << *it << endl;
+        list<int>::iterator it = l.begin();
+        for (int i = 0; i < int(l.size())/2; ++i) ++it; // :\.
+        cout << *it << endl;
       }
       else write_error();
     }
@@ -54,8 +44,3 @@ int main()
 }
 
 // implement with switch case?
-
-// Solution works with get_mid_value, but not for efficiency.
-// Idea: have an iterator which always points to the middle of the 
-// list; moving along with pushes and pops. Problem: a lot of errors
-// with ends, begins and shits like that.
