@@ -4,7 +4,7 @@ author: Artur Leivar
 
 # [%title]
 
-## List (template \<class T> class list)
+## List `template \<class T> class list`
 Linear structure containing T-type elements, which can start to be consulted
 from the ends, where from each element it's possible to access the previous and
 next element (if they exist), and that supports adding and removing elements
@@ -85,7 +85,7 @@ using iterators is not always necessary.
 // Pre: True\
 // Post: The result is the number of elements of the implicit parameter.
 
-## Set (template \<class T> class set)
+## Set `template \<class T> class set`
 Set containing elements of type T; the elements are ordered ascending by the
 order defined in T, which cannot be repeated; you can consult and modify
 elements by the ends, where from each element can access the previous and
@@ -172,7 +172,7 @@ this, the access time can be logarithmic.
     is greater than all elements of the i.p. would be the end()).
 
 
-## Map (template \<class K class T> class map)
+## Map `template \<class K class T> class map`
 Dictionary containing <key, value> pairs of type <K, T>; the elements are ordered
 by the order defined in K (keys may not be repeated); elements can be consulted
 and modified by the ends, where from each element the previous and subsequent
