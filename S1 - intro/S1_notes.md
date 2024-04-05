@@ -37,6 +37,26 @@ A .hh archive is usually made up with:
 the #endif. It's needed to avoid declaring its procedures multiple times, if
 the .hh file has been already called.
 
+## Templates
+
+`template <typename T> void procedure(T a, T& b);`
+`template <typename T> T function(T a, T& b);`
+
+<< There is no difference. typename and class are interchangeable in the declaration of a type template parameter.
+You do, however, have to use class (and not typename) when declaring a template template parameter: >>
+```
+template <template <typename> class    T> class C { }; // valid!
+template <template <typename> typename T> class C { }; // invalid!  o noez!
+```
+
+## Assert
+Module to facilitate program's debugging.
+```
+#define NDEBUG // disables the execution of assert
+#include <cassert>
+assert (a == b and "Message") // If a != b prints error and shows Message.
+```
+
 ## Compilation
 
 ```sh
