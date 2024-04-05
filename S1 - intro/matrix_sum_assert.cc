@@ -10,9 +10,9 @@ typedef std::vector< std::vector<double> > double_matrix;
 /* Pre: the user has written rowxcol elements in stdin */
 /* Post: matrix m */
 template <typename T>
-std::vector<std::vector<T>> read_matrix(int row, int col, int n)
+void read_matrix(std::vector<std::vector<T>>& m, int row, int col, int n) // pass by reference, to avoid copying the matrix
 {
-  std::vector<std::vector<T>> m(row, std::vector<T>(col));
+  m = std::vector<std::vector<T>>(row, std::vector<T>(col));
   std::cout << "Write the elements of the matrix " << n << " in order:" << std::endl;
   for (int i = 0; i < row; ++i)
   {
@@ -20,7 +20,6 @@ std::vector<std::vector<T>> read_matrix(int row, int col, int n)
     for (int j = 0; j < col; ++j)
       std::cin >> m[i][j];
   }
-  return m;
 }
 
 /* Pre: true */
@@ -68,10 +67,10 @@ int main(int argc, char *argv[])
   int row = atoi(argv[1]);
   int col = atoi(argv[2]);
   std::cout << "Write two matrixes A and B of dimensions " << row << 'x' << col << '.' << std::endl;
-  int_matrix a = read_matrix<int>(row, col, 1);
-  int_matrix b = read_matrix<int>(row, col, 2);
-  // double_matrix a = read_matrix<double>(row, col, 1);
-  // double_matrix b = read_matrix<double>(row, col, 2);
+  int_matrix a, b;
+  // double_matrix a, b;
+  read_matrix(a, row, col, 1);
+  read_matrix(b, row, col, 2);
 
   std::cout << std::endl << "The sum matrix A+B is:" << std::endl;
   write_matrix( sum(a, b) );

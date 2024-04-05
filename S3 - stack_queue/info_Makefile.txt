@@ -27,25 +27,25 @@ OPCIONS = -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++1
 G++ = g++-10  #esto solo es necesario en la FIB, ya que su g++ es muy antiguo
 #
 # La siguiente instruccion significa:
-# para obtener pert_queue.exe han de existir pert_queue.o y queueIOint.o;
-# si pert_queue.exe no existe o es mas antiguo que pert_queue.o,
+# para obtener program.exe han de existir main.o y module.o;
+# si program.exe no existe o es mas antiguo que main.o,
 # se obtiene con la instruccion g++ -o ... (el tabulador antes de g++ es necesario)
 #
-pert_queue.exe: pert_queue.o queueIOint.o
-	$(G++) -o pert_queue.exe pert_queue.o queueIOint.o
+program.exe: main.o module.o
+	$(G++) -o program.exe main.o module.o
 #
 # La siguiente instruccion significa:
-# para obtener pert_queue.o es necesario que exista pert_queue.cc y queueIOint.hh;
-# si pert_queue.o no existe o es mas antiguo que alguno de ellos,
+# para obtener main.o es necesario que exista main.cc y module.hh;
+# si main.o no existe o es mas antiguo que alguno de ellos,
 # se obtiene con la instruccion g++ -c ... 
 #
-pert_queue.o: pert_queue.cc queueIOint.hh
-	$(G++) -c pert_queue.cc $(OPCIONS) 
+main.o: main.cc module.hh
+	$(G++) -c main.cc $(OPCIONS) 
 #
-# se repite el proceso para queueIOint.o
+# se repite el proceso para module.o
 #
-queueIOint.o: queueIOint.cc queueIOint.hh
-	$(G++) -c queueIOint.cc  $(OPCIONS) 
+module.o: module.cc module.hh
+	$(G++) -c module.cc  $(OPCIONS) 
 
 # Esta última opción sirve para limpiar el directorio de ficheros 
 # innecesarios; se ejecuta mediante el comando "make clean"

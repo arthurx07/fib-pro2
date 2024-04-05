@@ -44,14 +44,14 @@ the .hh file has been already called.
 
 << There is no difference. typename and class are interchangeable in the declaration of a type template parameter.
 You do, however, have to use class (and not typename) when declaring a template template parameter: >>
-```
+```c++
 template <template <typename> class    T> class C { }; // valid!
 template <template <typename> typename T> class C { }; // invalid!  o noez!
 ```
 
 ## Assert
 Module to facilitate program's debugging.
-```
+```c++
 #define NDEBUG // disables the execution of assert
 #include <cassert>
 assert (a == b and "Message") // If a != b prints error and shows Message.
