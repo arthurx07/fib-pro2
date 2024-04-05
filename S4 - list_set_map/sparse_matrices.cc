@@ -25,7 +25,7 @@ To implement operations (without losing efficiency):
       vector of iterators for m2.
 */
 
-// TO-DO: implement sum and product of sparse matrices
+// TO-DO: implement product of sparse matrices
 
 #include <iostream>
 #include <vector>
@@ -69,6 +69,36 @@ void write_matrix(const std::vector<std::list<std::pair<int, T>>>& m, int col)
   }
 }
 
+/* Pre: A and B are two sparse matrices of orders a1xa2 and 
+ *  b1xb2. Where a1 = b1 and a2 = b2. */
+/* Post: C is a+b */
+template <typename T>
+void sum(const std::vector<std::list<std::pair<int, T>>>& a,
+         const std::vector<std::list<std::pair<int, T>>>& b,
+         std::vector<std::list<std::pair<int, T>>>& c, int col)
+{
+  // assert(a.size() == b.size() and col);
+  c = std::vector<std::list<std::pair<int, T>>>(a.size());
+  for (int i = 0; i < c.size(); ++i)
+  {
+    typename std::list<std::pair<int, T>>::const_iterator ita = a[i].begin();
+    typename std::list<std::pair<int, T>>::const_iterator itb = b[i].begin();
+    for (int j = 0; j < col; ++j) {
+      T value = 0;
+      if (ita != a[i].end() and ita->first == j) {
+        value += ita->second;
+        ++ita;
+      }
+      if (itb != b[i].end() and itb->first == j) {
+        value += itb->second;
+        ++itb;
+      }
+      if (value != 0) c[i].insert(c[i].end(), std::make_pair(j, value));
+    }
+  }
+}
+
+// void product();
 
 int main(int argc, char *argv[])
 {
@@ -79,10 +109,19 @@ int main(int argc, char *argv[])
   }
   int row = atoi(argv[1]);
   int col = atoi(argv[2]);
-  std::cout << "Write a matrix A of dimensions " << row << 'x' << col << '.' << std::endl;
+  std::cout << "Write a matrix A and B of dimensions " << row << 'x' << col << '.' << std::endl;
+
   std::vector< std::list<std::pair<int, int>> > a(row);
   // std::vector<std::list<std::pair<int, double>>> a(row);
   read_matrix(a, row, col);
-  std::cout << std::endl << "The written matrix is:" << std::endl;
-  write_matrix(a, col);
+  std::vector< std::list<std::pair<int, int>> > b(row);
+  read_matrix(b, row, col);
+
+  // std::cout << std::endl << "The written matrix is:" << std::endl;
+  // write_matrix(a, col);
+
+  std::vector< std::list<std::pair<int, int>> > c(row);
+  sum(a, b, c, col);
+  std::cout << std::endl << "The sum matrix A+B is:" << std::endl;
+  write_matrix(c, col);
 }

@@ -45,7 +45,7 @@ void write_matrix(const std::vector<std::vector<T>>& m)
   }
 }
 
-/* Pre: A and B are two matrixes of orders a1xa2 and 
+/* Pre: A and B are two matrices of orders a1xa2 and 
  *  b1xb2. Where a2 = b1 (the number of columns of A is equal
  *  to the number of rows of B) */
 /* Post: C is AB, of dimension a1xb2 */
@@ -67,7 +67,7 @@ std::vector<std::vector<T>> product(const std::vector<std::vector<T>>& a,
 
 int main()
 {
-  std::cout << "Write two matrixes A and B of dimensions mxn and nxp." << std::endl;
+  std::cout << "Write two matrices A and B of dimensions mxn and nxp." << std::endl;
   // int_matrix a, b;
   double_matrix a, b;
   read_matrix(a, 1);

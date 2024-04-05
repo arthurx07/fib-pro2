@@ -38,7 +38,7 @@ void write_matrix(const std::vector<std::vector<T>>& m)
   }
 }
 
-/* Pre: A and B are two matrixes of orders a1xa2 and 
+/* Pre: A and B are two matrices of orders a1xa2 and 
  *  b1xb2. Where a1 = b1 and a2 = b2. */
 /* Post: C is a+b */
 template <typename T>
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
   }
   int row = atoi(argv[1]);
   int col = atoi(argv[2]);
-  std::cout << "Write two matrixes A and B of dimensions " << row << 'x' << col << '.' << std::endl;
+  std::cout << "Write two matrices A and B of dimensions " << row << 'x' << col << '.' << std::endl;
   int_matrix a, b;
   // double_matrix a, b;
   read_matrix(a, row, col, 1);
