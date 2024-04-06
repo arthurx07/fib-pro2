@@ -25,8 +25,6 @@ To implement operations (without losing efficiency):
       vector of iterators for m2.
 */
 
-// TO-DO: implement product of sparse matrices
-
 #include <iostream>
 #include <vector>
 #include <list>
