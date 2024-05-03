@@ -1,0 +1,49 @@
+--- a/Estudiant.hh	2023-02-27 17:33:13.000000000 +0100
++++ b/Estudiant.hh	2022-09-13 16:31:36.000000000 +0200
+@@ -14,12 +14,12 @@
+ private:
+   int dni;
+   double nota;
+-  bool amb_nota;
++  
+   static const int MAX_NOTA = 10;
+   /*
+     Invariant de la representacio:
+     - 0 <= dni
+-    - si amb_nota, llavors 0 <= nota <= MAX_NOTA
++    - (escriu aqui la part que falta del nou invariant):
+   */
+     
+ public:
+@@ -32,9 +32,9 @@
+   Estudiant(int dni);
+   /* Pre: dni >= 0 */
+   /* Post: el resultat es un estudiant amb DNI = dni i sense nota */
+-    
++
+   //Modificadores
+-    
++
+   void afegir_nota(double nota);
+   /* Pre: el parametre implicit no te nota, 0 <= "nota" <= nota_maxima() */
+   /* Post: la nota del parametre implicit passa a ser "nota" */
+@@ -60,7 +60,19 @@
+   bool te_nota()  const;
+   /* Pre: cert  */
+   /* Post: el resultat indica si el parametre implicit te nota o no */
++
++  static bool comp(const Estudiant& e1, const Estudiant& e2);
++  /* Pre: cert  */
++  /* Post: el resultat indica si e1 te DNI mes petit que e2 */
++
++  bool operator==(const Estudiant& est) const;
++  /* Pre: cert */
++  /* Post: el resultat indica si el p.i. i est tenen el mateix DNI */
+   
++  bool operator!=(const Estudiant& est) const;
++  /* Pre: cert */
++  /* Post: el resultat indica si el p.i. i est tenen DNIs diferents */
++
+   // Lectura i escriptura
+     
+   void llegir();
