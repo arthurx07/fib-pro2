@@ -36,8 +36,9 @@ void Lavadora::anadir_prenda(const Prenda& p)
 void Lavadora::lavado()
 {
   if (not ini) throw PRO2Excepcio(ER2);
-  prendas = list<Prenda>(); // porque razón seria lineal? vale igual está asignación lo es, no sé
-  ini = 0;
+  prendas = list<Prenda>(); // porque razón seria lineal?
+  // vale igual está asignación lo es ya que debe reasignar los punteros de toda la lista antigua o algo así ¿?
+  ini = false;
   pes = 0;
 }
 
@@ -65,11 +66,9 @@ void Lavadora::escribir() const
 {
   cout << "   Lavadora: " << endl;
   if (ini) {
-    cout << "Lavadora de ";
-    if (col) cout << "color, ";
-    else cout << "blanco, ";
-    cout << "con peso actual " << pes << " y peso maximo " << pesmax << "; ";
-    cout << "sus prendas son" << endl;
+    string tipo = consultar_color() ? "color" : "blanco"; // if true -> color, if false -> blanco.
+    cout << "Lavadora de " << tipo << ", con peso actual " << pes;
+    cout << " y peso maximo " << pesmax << "; " << "sus prendas son" << endl;
     for (list<Prenda>::const_iterator it = prendas.cbegin(); it != prendas.cend(); ++it)
       it->escribir();
   }

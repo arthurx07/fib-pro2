@@ -16,7 +16,16 @@ Cubeta::Cubeta(const Cubeta& c)
 }
 
 // recursive version
-// static void completar_lavadora_pila_rec(stack<Prenda>& p, Lavadora& l);
+// static
+void Cubeta::completar_lavadora_pila_rec(stack<Prenda>& p, Lavadora& l)
+{
+  if (not p.empty() and l.consultar_peso() + p.top().consul_peso() <= l.consultar_peso_maximo())
+  {
+    l.anadir_prenda(p.top());
+    p.pop();
+    completar_lavadora_pila_rec(p, l);
+  }
+}
 
 // iterative version
 // static
@@ -33,7 +42,7 @@ void Cubeta::completar_lavadora_pila_it(stack<Prenda>& it, Lavadora& l)
   }
 }
 
-// static
+// static, no entiendo como va esto del static sinceramente
 void Cubeta::escribir_pila_prenda(const stack<Prenda>& p)
 {
   stack<Prenda> paux = p;  
