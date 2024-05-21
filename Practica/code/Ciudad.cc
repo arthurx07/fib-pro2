@@ -8,7 +8,7 @@ Ciudad::Ciudad()
 bool Ciudad::poner_producto(const Producto &p, int posee, int necesita)
 {
   if (tiene_producto(p)) {
-    cerr << "error: la ciudad ya tiene el producto" << endl;
+    cout << "error: la ciudad ya tiene el producto" << endl;
     return false;
   }
   Atributos at;
@@ -24,7 +24,7 @@ bool Ciudad::poner_producto(const Producto &p, int posee, int necesita)
 bool Ciudad::modificar_producto(const Producto &p, int posee, int necesita)
 {
   if (not tiene_producto(p)) {
-    cerr << "error: la ciudad no tiene el producto" << endl;
+    cout << "error: la ciudad no tiene el producto" << endl;
     return false;
   }
   pair<int, int> producto_anterior = consultar_producto(p);
@@ -43,7 +43,7 @@ bool Ciudad::modificar_producto(const Producto &p, int posee, int necesita)
 bool Ciudad::quitar_producto(const Producto &p)
 {
   if (not tiene_producto(p)) {
-    cerr << "error: la ciudad no tiene el producto" << endl;
+    cout << "error: la ciudad no tiene el producto" << endl;
     return false;
   }
   int posee = inventario.at(p).posee;
@@ -136,7 +136,7 @@ pair<int, int> Ciudad::consultar_producto(const Producto &p) const
 {
   if (not tiene_producto(p))
   {
-    cerr << "error: la ciudad no tiene el producto" << endl;
+    cout << "error: la ciudad no tiene el producto" << endl;
     return make_pair(-1, -1);
   }
   else

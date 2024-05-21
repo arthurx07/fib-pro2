@@ -10,6 +10,7 @@
 #include "Ciudad.hh"
 
 #include <map>
+#include <list>
 #include <utility>
 #include "BinTree.hh"
 #include <iostream>
@@ -24,7 +25,7 @@ private:
 
   BinTree<string> leer_estructura_recursiva();
   void redistribuir_recursiva(BinTree<string> t);
-  BinTree<string> buscar_ruta_recursiva(BinTree<string> t);
+  list<string> buscar_ruta_recursiva(BinTree<string> t, int &comprados, int &vendidos);
 
 public:
   // Modificadoras
@@ -39,7 +40,7 @@ public:
 
   void comerciar(string idc1, string idc2);
   void redistribuir();
-  pair<int, int> hacer_viaje();
+  int hacer_viaje();
 
   // Consultoras
   pair<int, int> consultar_prod(string idc, int idp) const;

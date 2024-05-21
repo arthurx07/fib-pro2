@@ -11,8 +11,8 @@ istream &operator>>(istream &is, Barco &b)
 
 void Barco::modificar(int id_compra, int id_venta, int cantidad_compra, int cantidad_venta)
 {
-  if (id_compra == id_venta) cerr << "error: no se puede comprar y vender el mismo producto" << endl;
-  else if ((cantidad_compra == 0 and cantidad_venta == 0) or cantidad_compra < 0 or cantidad_venta < 0) cerr << "error: condiciones cantidad barco" << endl;
+  if (id_compra == id_venta) cout << "error: no se puede comprar y vender el mismo producto" << endl;
+  else if ((cantidad_compra == 0 and cantidad_venta == 0) or cantidad_compra < 0 or cantidad_venta < 0) cout << "error: condiciones cantidad barco" << endl;
   else
   {
     vender = make_pair(id_venta, cantidad_venta);
@@ -23,6 +23,11 @@ void Barco::modificar(int id_compra, int id_venta, int cantidad_compra, int cant
 void Barco::agregar_viaje(string id)
 {
   viajes.push_back(id);
+}
+
+void Barco::olvidar()
+{
+  viajes = list<string>(); // eficiente?
 }
 
 pair<int, int> Barco::consultar_vender() const

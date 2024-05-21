@@ -25,6 +25,7 @@ public:
   void modificar(int id_compra, int id_venta, int cantidad_compra, int cantidad_venta);
 
   void agregar_viaje(string id);
+  void olvidar();
 
   // Consultoras
   pair<int, int> consultar_vender() const;

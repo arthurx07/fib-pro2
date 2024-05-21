@@ -153,8 +153,12 @@ int main()
     else if (command == "hacer_viaje" or command == "hv")
     {
       cout << '#' << command << endl;
-      pair<int, int> p = c.hacer_viaje();
-      cout << p.first << ' ' << p.second << endl;
+      cout << c.hacer_viaje() << endl;
+    }
+    else // if (command == "//")
+    {
+      string s;
+      getline(cin, s);
     }
   }
 }

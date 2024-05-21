@@ -8,6 +8,7 @@
 #include <map>
 #include <ostream>
 #include <utility>
+#include "Barco.hh" // TEST
 #include "Producto.hh"
 
 using namespace std;
