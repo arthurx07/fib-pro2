@@ -25,7 +25,8 @@ private:
 
   BinTree<string> leer_estructura_recursiva();
   void redistribuir_recursiva(BinTree<string> t);
-  list<string> buscar_ruta_recursiva(BinTree<string> t, int &comprados, int &vendidos);
+  // list<string> buscar_ruta_recursiva(BinTree<string> t, int &comprados, int &vendidos);
+  void buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &comprar, int &vender);
 
 public:
   // Modificadoras
