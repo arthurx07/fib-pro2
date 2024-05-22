@@ -26,17 +26,17 @@ int Producto::consultar_volumen() const
   return volumen;
 }
 
+istream &operator>>(istream &is, Producto &p)
+{
+  is >> p.peso >> p.volumen;
+  return is;
+}
+
 ostream &operator<<(ostream &os, const Producto &p)
 {
   if (p.id != 0) os << p.id << ' ';
   os << p.peso << ' ' << p.volumen;
   return os;
-}
-
-istream &operator>>(istream &is, Producto &p)
-{
-  is >> p.peso >> p.volumen;
-  return is;
 }
 
 bool operator<(const Producto &p1, const Producto &p2)

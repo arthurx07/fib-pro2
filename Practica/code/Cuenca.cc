@@ -15,12 +15,9 @@ BinTree<string> Cuenca::leer_estructura_recursiva()
 
 void Cuenca::leer_estructura()
 {
-  // map<string, Ciudad> 
   ciudades = map<string, Ciudad>(); // empty map
   estructura = leer_estructura_recursiva();
   barco.olvidar();
-  // estructura.setOutputFormat(BinTree<string>::VISUALFORMAT);
-  // cout << estructura;
 }
 
 void Cuenca::leer_ciudad(string id)
@@ -36,17 +33,16 @@ void Cuenca::leer_ciudad(string id)
   if (not existe_ciudad(id)) cout << "error: no existe la ciudad" << endl;
 }
 
+void Cuenca::agregar_producto(Producto &p)
+{
+  int id = consultar_num_prod() + 1;
+  productos[id] = Producto(id, p.consultar_peso(), p.consultar_volumen());
+}
+
 void Cuenca::modificar_barco(int idc, int idv, int cantc, int cantv)
 {
   if (not existe_producto(idc) or not existe_producto(idv)) cout << "error: no existe el producto" << endl;
   else barco.modificar(idc, idv, cantc, cantv);
-}
-
-void Cuenca::agregar_producto(Producto &p)
-{
-  int id = consultar_num() + 1;
-  Producto prod(id, p.consultar_peso(), p.consultar_volumen());
-  productos[id] = prod;
 }
 
 void Cuenca::poner_prod(string idc, int idp, int posee, int necesita)
@@ -90,11 +86,11 @@ void Cuenca::quitar_prod(string idc, int idp)
 
 void Cuenca::comerciar(string idc1, string idc2)
 {
-  if (idc1 == idc2) cout << "error: ciudad repetida" << endl;
-  else if (not existe_ciudad(idc1) or not existe_ciudad(idc2)) cout << "error: no existe la ciudad" << endl;
+  if (not existe_ciudad(idc1) or not existe_ciudad(idc2)) cout << "error: no existe la ciudad" << endl;
+  else if (idc1 == idc2) cout << "error: ciudad repetida" << endl;
   else
   {
-    if (ciudades[idc1].medida() < ciudades[idc2].medida()) ciudades[idc1].comerciar(ciudades[idc2]);
+    if (ciudades[idc1].size() <= ciudades[idc2].size()) ciudades[idc1].comerciar(ciudades[idc2]);
     else ciudades[idc2].comerciar(ciudades[idc1]);
   }
 }
@@ -102,11 +98,15 @@ void Cuenca::comerciar(string idc1, string idc2)
 void Cuenca::redistribuir_recursiva(BinTree<string> t)
 {
   if (not t.empty()) {
-    if (not t.left().empty()) comerciar(t.value(), t.left().value());
-    redistribuir_recursiva(t.left()); // ciudad río arriba a mano derecha
+    if (not t.left().empty()) {
+      comerciar(t.value(), t.left().value());
+      redistribuir_recursiva(t.left()); // ciudad río arriba a mano derecha
+    } // debería funcionar igual sin incluir red_rec en el if
 
-    if (not t.right().empty()) comerciar(t.value(), t.right().value());
-    redistribuir_recursiva(t.right());
+    if (not t.right().empty()) {
+      comerciar(t.value(), t.right().value());
+      redistribuir_recursiva(t.right());
+    }
   }
 }
 
@@ -115,119 +115,27 @@ void Cuenca::redistribuir()
   redistribuir_recursiva(estructura);
 }
 
-// list<string> Cuenca::buscar_ruta_recursiva(BinTree<string> t, int &comprados, int &vendidos)
-// {
-//   int idc, idv, cantc, cantv;
-//   idc = barco.consultar_comprar().first;
-//   idv = barco.consultar_vender().first;
-//   cantc = barco.consultar_comprar().second;
-//   cantv = barco.consultar_vender().second;
-//
-//   // cout << "idc, idv, cantc, cantv: " << idc << ' ' << idv << ' ' << cantc << ' ' << cantv << ' ' << endl;
-//
-//   if (t.empty()) return list<string>();
-//
-//   pair<int, int> a, b;
-//   a = b = make_pair(-1, -1);
-//   if (ciudades[t.value()].tiene_producto(productos[idc]))
-//     a = ciudades[t.value()].consultar_producto(productos[idc]);
-//   if (ciudades[t.value()].tiene_producto(productos[idv]))
-//     b = ciudades[t.value()].consultar_producto(productos[idv]);
-//
-//   if (a != make_pair(-1, -1)) {
-//     int cpos = a.first, cnec = a.second;
-//     int cdif = cpos - cnec;
-//     if (cdif >= 0) comprados += cdif;
-//   }
-//   if (b != make_pair(-1, -1)) {
-//     int vpos = b.first, vnec = b.second;
-//     int vdif = vnec - vpos;
-//     if (vdif >= 0) vendidos += vdif;
-//   }
-//
-//   if (comprados == cantc and vendidos == cantv) return list<string>(1, t.value());
-//
-//   int ci = comprados, vi = vendidos;
-//   list<string> ruta_izquierda = buscar_ruta_recursiva(t.left(), ci, vi);
-//   ruta_izquierda.push_front(t.value());
-//
-//   int cd = comprados, vd = vendidos;
-//   list<string> ruta_derecha = buscar_ruta_recursiva(t.right(), cd, vd);
-//   ruta_derecha.push_front(t.value());
-//
-//   if (comprados == ci and ci == cd and vendidos == vi and vi == vd) {
-//     // if not (sell or buy) on any next node, return shortest path (it's the done until now)
-//     return list<string>(1, t.value());
-//   }
-//   else if (ci == cantc and vi == cantv and cd == cantc and vd == cantv)
-//   {
-//     if (ruta_izquierda.size() <= ruta_derecha.size())
-//     {
-//       comprados = ci; vendidos = vi;
-//       return ruta_izquierda;
-//     }
-//     else
-//     {
-//       comprados = cd; vendidos = vd;
-//       return ruta_derecha;
-//     }
-//   }
-//   else if (ci == cantc and vi == cantv)
-//   {
-//     comprados = ci; vendidos = vi;
-//     return ruta_izquierda;
-//   }
-//   else if (cd == cantc and vd == cantv)
-//   {
-//     comprados = cd; vendidos = vd;
-//     return ruta_derecha;
-//   }
-//   else if (ci + vi >= cd + vd)
-//   {
-//     comprados = ci; vendidos = vi;
-//     return ruta_izquierda;
-//   }
-//   else if (cd + vd > ci + vi)
-//   {
-//     comprados = cd; vendidos = vd;
-//     return ruta_derecha;
-//   }
-//   else // ci + vi == cd + vd
-//   {
-//     if (ruta_izquierda.size() <= ruta_derecha.size())
-//     {
-//       comprados = ci; vendidos = vi;
-//       return ruta_izquierda;
-//     }
-//     else
-//     {
-//       comprados = cd; vendidos = vd;
-//       return ruta_derecha;
-//     }
-//   }
-// }
-
-// THINK IF IT'S MORE EFFICIENT (IN SPACE AND TIME) &LIST OR RETURN LIST
-void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &comprar, int &vender)
+// note: think to implement it as: void func(list<string> &l) or list<string> func();
+void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &comprar, int &vender) const
 {
   if (not t.empty())
   {
     int idc = barco.consultar_comprar().first;
     int idv = barco.consultar_vender().first;
-    if (ciudades[t.value()].tiene_producto(productos[idc]))
+    if (ciudades.at(t.value()).tiene_producto(productos.at(idc)))
     {
-      pair<int, int> atributos = ciudades[t.value()].consultar_producto(productos[barco.consultar_comprar().first]);
+      pair<int, int> atributos = ciudades.at(t.value()).consultar_producto(productos.at(barco.consultar_comprar().first));
       int diferencia = atributos.first - atributos.second; // posee - necesita
       if (diferencia > 0) comprar -= min(diferencia, comprar);
     }
-    if (ciudades[t.value()].tiene_producto(productos[idv]))
+    if (ciudades.at(t.value()).tiene_producto(productos.at(idv)))
     {
-      pair<int, int> atributos = ciudades[t.value()].consultar_producto(productos[barco.consultar_vender().first]);
+      pair<int, int> atributos = ciudades.at(t.value()).consultar_producto(productos.at(barco.consultar_vender().first));
       int diferencia = atributos.second - atributos.first; // necesita - posee
       if (diferencia > 0) vender -= min(diferencia, vender);
     }
 
-    // NOTE: COMPRAR NEVER < 0 AND VENDER NEVER < 0
+    // NOTE: always comprar >= 0 and vender >= 0;
     if (comprar == 0 and vender == 0)
       ruta.push_front(t.value());
     else
@@ -242,30 +150,33 @@ void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &c
       list<string> ruta_derecha;
       buscar_ruta_recursiva(t.right(), ruta_derecha, cd, vd);
 
-      // if (comprar != ci or ci != cd or vender != vi or vi != vd)
       if (not (comprar == ci and ci == cd and vender == vi and vi == vd))
       {
         if (ci + vi == cd + vd)
         {
           if (ruta_izquierda.size() <= ruta_derecha.size())
           {
-            comprar = ci; vender = vi;
+            comprar = ci;
+            vender = vi;
             ruta = ruta_izquierda;
           }
           else
           {
-            comprar = cd; vender = vd;
+            comprar = cd;
+            vender = vd;
             ruta = ruta_derecha;
           }
         }
         else if (ci + vi < cd + vd)
         {
-          comprar = ci; vender = vi;
+          comprar = ci;
+          vender = vi;
           ruta = ruta_izquierda;
         }
         else // if (cd + vd < ci + vi)
         {
-          comprar = cd; vender = vd;
+          comprar = cd;
+          vender = vd;
           ruta = ruta_derecha;
         }
       }
@@ -278,18 +189,15 @@ int Cuenca::hacer_viaje()
 {
   list<string> ruta;
 
-  int comprar = barco.consultar_comprar().second;
-  int vender = barco.consultar_vender().second;
+  int cantc, cantv, comprar, vender;
+  cantc = comprar = barco.consultar_comprar().second;
+  cantv = vender = barco.consultar_vender().second;
   buscar_ruta_recursiva(estructura, ruta, comprar, vender);
-
-  int cantc = barco.consultar_comprar().second;
-  int cantv = barco.consultar_vender().second;
 
   if (comprar != cantc or vender != cantv)
   {
     list<string>::iterator idfin = ruta.end();
-    --idfin;
-    barco.agregar_viaje(*idfin);
+    barco.agregar_viaje(*--idfin);
 
     for (list<string>::iterator it = ruta.begin(); it != ruta.end(); ++it)
     {
@@ -336,7 +244,7 @@ pair<int, int> Cuenca::consultar_prod(string idc, int idp) const
   return make_pair(-1, -1);
 }
 
-int Cuenca::consultar_num() const
+int Cuenca::consultar_num_prod() const
 {
   return productos.size();
 }
@@ -353,7 +261,7 @@ bool Cuenca::existe_ciudad(string id) const
 
 void Cuenca::escribir_barco() const
 {
-  cout << barco; // << endl;
+  cout << barco << endl;
 }
 
 void Cuenca::escribir_producto(int id) const

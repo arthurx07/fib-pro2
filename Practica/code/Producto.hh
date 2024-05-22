@@ -23,6 +23,8 @@ public:
   int consultar_id() const;
   int consultar_peso() const;
   int consultar_volumen() const;
+
+  // Operadores
   friend istream &operator>>(istream &is, Producto &p);
   friend ostream &operator<<(ostream &os, const Producto &p);
   friend bool operator<(const Producto &p1, const Producto &p2);

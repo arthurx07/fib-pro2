@@ -69,7 +69,7 @@ int main()
     else if (command == "consultar_num" or command == "cn")
     {
       cout << '#' << command << endl;
-      cout << c.consultar_num() << endl;
+      cout << c.consultar_num_prod() << endl;
     }
     else if (command == "agregar_productos" or command == "ap")
     {
@@ -155,7 +155,7 @@ int main()
       cout << '#' << command << endl;
       cout << c.hacer_viaje() << endl;
     }
-    else // if (command == "//")
+    else if (command == "//")
     {
       string s;
       getline(cin, s);

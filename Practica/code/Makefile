@@ -1,7 +1,4 @@
 OPCIONES = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11 -fno-extended-identifiers
-# -fsanitize=address: to check for segfault at end of main()
-
-# ¿ESTÁ BIEN? ¿DÓNDE VA BinTree.hh?
 
 program.exe: program.o Barco.o Ciudad.o Cuenca.o Producto.o
 	g++ -o program.exe program.o Barco.o Ciudad.o Cuenca.o Producto.o $(OPCIONES)

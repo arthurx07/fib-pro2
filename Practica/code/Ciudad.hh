@@ -8,7 +8,6 @@
 #include <map>
 #include <ostream>
 #include <utility>
-#include "Barco.hh" // TEST
 #include "Producto.hh"
 
 using namespace std;
@@ -20,25 +19,26 @@ private:
   struct Atributos {
     int posee, necesita;
   };
-  map<Producto, Atributos> inventario;
-  // ¿buscar otra implementación?: CLASE CONJUNTO DE PRODUCTOS (?)
+  map<Producto, Atributos> inventario; // ¿buscar otra implementación, clase conjunto de productos?
 
 public:
   // Constructoras
   Ciudad();
 
   // Modificadoras
-  bool poner_producto(const Producto &p, int posee, int necesita);
   bool modificar_producto(const Producto &p, int posee, int necesita);
+  bool poner_producto(const Producto &p, int posee, int necesita);
   bool quitar_producto(const Producto &p);
   void comerciar(Ciudad &c);
 
   // Consultoras
-  int medida() const;
+  int size() const;
   int consultar_peso() const;
   int consultar_volumen() const;
   bool tiene_producto(const Producto &p) const;
   pair<int, int> consultar_producto(const Producto &p) const;
+
+  // Operadores
   friend ostream &operator<<(ostream &os, const Ciudad &c);
 
 };

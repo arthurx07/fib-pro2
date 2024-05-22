@@ -61,47 +61,32 @@ void Ciudad::comerciar(Ciudad &c)
   {
     if (it1->first == it2->first)
     {
-      // while (it1->second.posee > it1->second.necesita and it2->second.posee < it2->second.necesita) {
-      //   --it1->second.posee;
-      //   ++it2->second.posee;
-      // }
-      // while (it1->second.posee < it1->second.necesita and it2->second.posee > it2->second.necesita) {
-      //   ++it1->second.posee;
-      //   --it2->second.posee;
-      // }
-      if (it1->second.posee > it1->second.necesita and it2->second.posee < it2->second.necesita)
-      {
-        int dar = it1->second.posee - it1->second.necesita;
-        int rec = it2->second.necesita - it2->second.posee;
+      int dar = it1->second.posee - it1->second.necesita;
+      int rec = it2->second.necesita - it2->second.posee;
+      if (dar > 0 and rec > 0) {
+        rec = min(dar, rec);
+        it1->second.posee -= rec;
+        it2->second.posee += rec;
 
-        int dados;
-        if (dar > rec) dados = rec;
-        else dados = dar;
-
-        it2->second.posee += dados;
-        it1->second.posee -= dados;
-
-        peso_total -= it1->first.consultar_peso()*dados;
-        volumen_total -= it1->first.consultar_volumen()*dados;
-        c.peso_total += it2->first.consultar_peso()*dados;
-        c.volumen_total += it2->first.consultar_volumen()*dados;
+        peso_total -= it1->first.consultar_peso()*rec;
+        volumen_total -= it1->first.consultar_volumen()*rec;
+        c.peso_total += it2->first.consultar_peso()*rec;
+        c.volumen_total += it2->first.consultar_volumen()*rec;
       }
-      else if (it1->second.posee < it1->second.necesita and it2->second.posee > it2->second.necesita)
+      else
       {
-        int dar = it2->second.posee - it2->second.necesita;
-        int rec = it1->second.necesita - it1->second.posee;
+        dar = it2->second.posee - it2->second.necesita;
+        rec = it1->second.necesita - it1->second.posee;
+        if (dar > 0 and rec > 0) {
+          rec = min(dar, rec);
+          it1->second.posee += rec;
+          it2->second.posee -= rec;
 
-        int dados;
-        if (dar > rec) dados = rec;
-        else dados = dar;
-
-        it1->second.posee += dados;
-        it2->second.posee -= dados;
-
-        peso_total += it1->first.consultar_peso()*dados;
-        volumen_total += it1->first.consultar_volumen()*dados;
-        c.peso_total -= it2->first.consultar_peso()*dados;
-        c.volumen_total -= it2->first.consultar_volumen()*dados;
+          peso_total += it1->first.consultar_peso()*rec;
+          volumen_total += it1->first.consultar_volumen()*rec;
+          c.peso_total -= it2->first.consultar_peso()*rec;
+          c.volumen_total -= it2->first.consultar_volumen()*rec;
+        }
       }
 
       ++it1;
@@ -112,7 +97,7 @@ void Ciudad::comerciar(Ciudad &c)
   }
 }
 
-int Ciudad::medida() const
+int Ciudad::size() const
 {
   return inventario.size();
 }
@@ -128,7 +113,6 @@ int Ciudad::consultar_volumen() const
 
 bool Ciudad::tiene_producto(const Producto &p) const
 {
-  // return inventario.count(id);
   return inventario.count(p);
 }
 
