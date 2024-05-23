@@ -1,7 +1,33 @@
-#include <utility>
-#include <iostream>
+/** @mainpage
+    Práctica de Programación 2 de Artur Leivar
+*/
+
+/** @file program.cc
+
+    @brief Programa principal
+
+    Estamos suponiendo que los datos leídos siempre son correctos, ya que no
+    incluimos comprobaciones al respecto. En un principio se leen los productos,
+    a continuación la estructura de la cuenca y despúes se lee el barco.
+    Finalmente, el programa entra en un bucle dónde lee ciertos comandos que
+    pueden cambiar el barco, la estructura de la cuenca y sus ciudades y
+    realizar operaciones entre estos elementos. Además, se pueden definir nuevos
+    productos, pero nunca quitar o modificar los ya existentes.
+    El programa sale del bucle al leer el comando 'fin'.
+
+*/
+
 #include "Cuenca.hh"
 #include "Producto.hh"
+
+// NO_DIAGRAM: esto hace que el Doxyfile de la sesión no
+// incluya estas clases en los diagramas modulares, 
+// mientras que el compilador de c++ 
+// sí que las procesa correctamente
+#ifndef NO_DIAGRAM
+#include <utility>
+#include <iostream>
+#endif
 
 using namespace std;
 
@@ -9,25 +35,25 @@ int main()
 {
   Cuenca c;
 
-  // LECTURA DE PRODUCTOS
+  // lectura de productos
   int n;
   cin >> n;
   for (int i = 0; i < n; ++i)
   {
     Producto p;
     cin >> p;
-    c.agregar_producto(p); // cuenca asigna el id
+    c.agregar_producto(p);
   }
 
-  // LECTURA DE ESTRUCTURA DE LA CUENCA
+  // lectura de la estructura de la cuenca
   c.leer_estructura();
 
-  // LECTURA DEL BARCO
+  // lectura del barco
   int idc, cantc, idv, cantv;
   cin >> idc >> cantc >> idv >> cantv;
   c.modificar_barco(idc, idv, cantc, cantv);
 
-  // LECTURA DE COMANDOS
+  // lectura de comandos
   string command;
   while (cin >> command and command != "fin")
   {
@@ -74,7 +100,7 @@ int main()
     else if (command == "agregar_productos" or command == "ap")
     {
       int n;
-      cin >> n; // n > 0
+      cin >> n; // condición: n > 0
 
       cout << '#' << command << ' ' << n << endl;
       for (int i = 0; i < n; ++i)

@@ -6,16 +6,16 @@ program.exe: program.o Barco.o Ciudad.o Cuenca.o Producto.o
 Barco.o: Barco.cc Barco.hh
 	g++ -c Barco.cc $(OPCIONES)
 
-Ciudad.o: Ciudad.cc Ciudad.hh
+Ciudad.o: Ciudad.cc Ciudad.hh Producto.hh
 	g++ -c Ciudad.cc $(OPCIONES)
 
-Cuenca.o: Cuenca.cc Cuenca.hh
+Cuenca.o: Cuenca.cc Cuenca.hh Barco.hh Ciudad.hh Producto.hh BinTree.hh
 	g++ -c Cuenca.cc $(OPCIONES)
 
 Producto.o: Producto.cc Producto.hh
 	g++ -c Producto.cc $(OPCIONES)
 
-program.o: program.cc
+program.o: program.cc Cuenca.hh Producto.hh
 	g++ -c program.cc $(OPCIONES)
 
 tar: Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc

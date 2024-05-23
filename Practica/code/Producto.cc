@@ -1,7 +1,12 @@
+/** @file Producto.cc
+    @brief Implementación de la clase Producto
+*/
+
 #include "Producto.hh"
 
 Producto::Producto()
 {
+  // Inicializa un producto con los valores privados nulos
   id = peso = volumen = 0;
 }
 
@@ -26,21 +31,9 @@ int Producto::consultar_volumen() const
   return volumen;
 }
 
-istream &operator>>(istream &is, Producto &p)
-{
-  is >> p.peso >> p.volumen;
-  return is;
-}
-
-ostream &operator<<(ostream &os, const Producto &p)
-{
-  if (p.id != 0) os << p.id << ' ';
-  os << p.peso << ' ' << p.volumen;
-  return os;
-}
-
 bool operator<(const Producto &p1, const Producto &p2)
 {
+  // La comparación 'menor que' se basa en comparar los identificadores de ambos productos
   return p1.id < p2.id;
 }
 
@@ -51,5 +44,19 @@ bool operator>(const Producto &p1, const Producto &p2)
 
 bool operator==(const Producto &p1, const Producto &p2)
 {
+  // Devuelve la comparación entre los diferentes valores privados de ambos productos
   return (p1.id == p2.id) and (p1.peso == p2.peso) and (p1.volumen == p2.volumen);
+}
+
+std::istream &operator>>(std::istream &is, Producto &p)
+{
+  is >> p.peso >> p.volumen;
+  return is;
+}
+
+std::ostream &operator<<(std::ostream &os, const Producto &p)
+{
+  if (p.id != 0) os << p.id << ' ';
+  os << p.peso << ' ' << p.volumen;
+  return os;
 }

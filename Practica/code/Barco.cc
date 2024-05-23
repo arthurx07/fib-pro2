@@ -1,12 +1,21 @@
+/** @file Barco.cc
+    @brief Implementación de la clase Barco
+*/
+
 #include "Barco.hh"
+
+Barco::Barco()
+{
+  comprar = make_pair(0, 0);
+  vender = make_pair(0, 0);
+  viajes = list<string>();
+}
 
 void Barco::modificar(int id_compra, int id_venta, int cantidad_compra, int cantidad_venta)
 {
   if (id_compra == id_venta)
     cout << "error: no se puede comprar y vender el mismo producto" << endl;
-  else if ((cantidad_compra == 0 and cantidad_venta == 0) or cantidad_compra < 0 or cantidad_venta < 0)
-    cout << "error: condiciones cantidad barco" << endl;
-  else
+  else // if (cantidad_compra*cantidad_venta > 0 and cantidad_compra + cantidad_venta > 0)
   {
     vender = make_pair(id_venta, cantidad_venta);
     comprar = make_pair(id_compra, cantidad_compra);
@@ -23,13 +32,24 @@ void Barco::olvidar()
   viajes = list<string>();
 }
 
-pair<int, int> Barco::consultar_vender() const
+int Barco::consultar_id_comprar() const
 {
-  return vender;
+  return comprar.first;
 }
-pair<int, int> Barco::consultar_comprar() const
+
+int Barco::consultar_cantidad_comprar() const
 {
-  return comprar;
+  return comprar.second;
+}
+
+int Barco::consultar_id_vender() const
+{
+  return vender.first;
+}
+
+int Barco::consultar_cantidad_vender() const
+{
+  return vender.second;
 }
 
 istream &operator>>(istream &is, Barco &b)

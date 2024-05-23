@@ -1,4 +1,16 @@
+/** @file Cuenca.cc
+    @brief Implementación de la clase Cuenca
+*/
+
 #include "Cuenca.hh"
+
+Cuenca::Cuenca()
+{
+  productos = map<int, Producto>();
+  ciudades = map<string, Ciudad>();
+  estructura = BinTree<string>();
+  barco = Barco();
+}
 
 BinTree<string> Cuenca::leer_estructura_recursiva()
 {
@@ -15,7 +27,7 @@ BinTree<string> Cuenca::leer_estructura_recursiva()
 
 void Cuenca::leer_estructura()
 {
-  ciudades = map<string, Ciudad>(); // empty map
+  ciudades = map<string, Ciudad>(); // vaciar el mapa
   estructura = leer_estructura_recursiva();
   barco.olvidar();
 }
@@ -90,8 +102,7 @@ void Cuenca::comerciar(string idc1, string idc2)
   else if (idc1 == idc2) cout << "error: ciudad repetida" << endl;
   else
   {
-    if (ciudades[idc1].size() <= ciudades[idc2].size()) ciudades[idc1].comerciar(ciudades[idc2]);
-    else ciudades[idc2].comerciar(ciudades[idc1]);
+    ciudades[idc1].comerciar(ciudades[idc2]);
   }
 }
 
@@ -120,17 +131,17 @@ void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &c
 {
   if (not t.empty())
   {
-    int idc = barco.consultar_comprar().first;
-    int idv = barco.consultar_vender().first;
+    int idc = barco.consultar_id_comprar();
+    int idv = barco.consultar_id_vender();
     if (ciudades.at(t.value()).tiene_producto(productos.at(idc)))
     {
-      pair<int, int> atributos = ciudades.at(t.value()).consultar_producto(productos.at(barco.consultar_comprar().first));
+      pair<int, int> atributos = ciudades.at(t.value()).consultar_producto(productos.at(barco.consultar_id_comprar()));
       int diferencia = atributos.first - atributos.second; // posee - necesita
       if (diferencia > 0) comprar -= min(diferencia, comprar);
     }
     if (ciudades.at(t.value()).tiene_producto(productos.at(idv)))
     {
-      pair<int, int> atributos = ciudades.at(t.value()).consultar_producto(productos.at(barco.consultar_vender().first));
+      pair<int, int> atributos = ciudades.at(t.value()).consultar_producto(productos.at(barco.consultar_id_vender()));
       int diferencia = atributos.second - atributos.first; // necesita - posee
       if (diferencia > 0) vender -= min(diferencia, vender);
     }
@@ -190,8 +201,8 @@ int Cuenca::hacer_viaje()
   list<string> ruta;
 
   int cantc, cantv, comprar, vender;
-  cantc = comprar = barco.consultar_comprar().second;
-  cantv = vender = barco.consultar_vender().second;
+  cantc = comprar = barco.consultar_cantidad_comprar();
+  cantv = vender = barco.consultar_cantidad_vender();
   buscar_ruta_recursiva(estructura, ruta, comprar, vender);
 
   if (comprar != cantc or vender != cantv)
@@ -201,7 +212,7 @@ int Cuenca::hacer_viaje()
 
     for (list<string>::iterator it = ruta.begin(); it != ruta.end(); ++it)
     {
-      Producto pc = productos[barco.consultar_comprar().first];
+      Producto pc = productos[barco.consultar_id_comprar()];
       if (ciudades[*it].tiene_producto(pc))
       {
         pair<int, int> atributos = ciudades[*it].consultar_producto(pc);
@@ -213,7 +224,7 @@ int Cuenca::hacer_viaje()
           cantc -= temp;
         }
       }
-      Producto pv = productos[barco.consultar_vender().first];
+      Producto pv = productos[barco.consultar_id_vender()];
       if (ciudades[*it].tiene_producto(pv))
       {
         pair<int, int> atributos = ciudades[*it].consultar_producto(pv);
@@ -228,7 +239,7 @@ int Cuenca::hacer_viaje()
     }
   }
 
-  return barco.consultar_comprar().second + barco.consultar_vender().second - comprar - vender;
+  return barco.consultar_cantidad_comprar() + barco.consultar_cantidad_vender() - comprar - vender;
 }
 
 pair<int, int> Cuenca::consultar_prod(string idc, int idp) const

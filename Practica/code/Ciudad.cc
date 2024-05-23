@@ -1,28 +1,18 @@
+/** @file Ciudad.cc
+    @brief Implementación de la clase Ciudad
+*/
+
 #include "Ciudad.hh"
 
 Ciudad::Ciudad()
 {
   peso_total = volumen_total = 0;
-}
-
-bool Ciudad::poner_producto(const Producto &p, int posee, int necesita)
-{
-  if (tiene_producto(p)) {
-    cout << "error: la ciudad ya tiene el producto" << endl;
-    return false;
-  }
-  Atributos at;
-  at.posee = posee;
-  at.necesita = necesita;
-  inventario[p] = at;
-
-  peso_total += p.consultar_peso()*posee;
-  volumen_total += p.consultar_volumen()*posee;
-  return true;
+  inventario = map<Producto, Atributos>();
 }
 
 bool Ciudad::modificar_producto(const Producto &p, int posee, int necesita)
 {
+  // nota: necesita > 0
   if (not tiene_producto(p)) {
     cout << "error: la ciudad no tiene el producto" << endl;
     return false;
@@ -39,6 +29,22 @@ bool Ciudad::modificar_producto(const Producto &p, int posee, int necesita)
   return true;
 }
 
+bool Ciudad::poner_producto(const Producto &p, int posee, int necesita)
+{
+  // nota: necesita > 0
+  if (tiene_producto(p)) {
+    cout << "error: la ciudad ya tiene el producto" << endl;
+    return false;
+  }
+  Atributos at;
+  at.posee = posee;
+  at.necesita = necesita;
+  inventario[p] = at;
+
+  peso_total += p.consultar_peso()*posee;
+  volumen_total += p.consultar_volumen()*posee;
+  return true;
+}
 
 bool Ciudad::quitar_producto(const Producto &p)
 {
@@ -53,6 +59,7 @@ bool Ciudad::quitar_producto(const Producto &p)
   return true;
 }
 
+// revisar
 void Ciudad::comerciar(Ciudad &c)
 {
   map<Producto, Atributos>::iterator it1 = inventario.begin();
@@ -125,7 +132,8 @@ pair<int, int> Ciudad::consultar_producto(const Producto &p) const
   }
   else
   {
-    Atributos ab = inventario.at(p); // as p is const, use at.(key) which instead throws exception if key not present. [] may need to create a new element
+    Atributos ab = inventario.at(p);
+    // en ser p const, se usa at.(clave) que devuelve una excepción si la clave no está presente. [] crearia un nuevo elemento
     return make_pair(ab.posee, ab.necesita);
   }
 }
