@@ -20,10 +20,10 @@
 #include "Cuenca.hh"
 #include "Producto.hh"
 
-// NO_DIAGRAM: esto hace que el Doxyfile de la sesión no
-// incluya estas clases en los diagramas modulares, 
-// mientras que el compilador de c++ 
-// sí que las procesa correctamente
+/* NO_DIAGRAM: esto hace que el Doxyfile de la sesión no incluya estas clases
+ * en los diagramas modulares, mientras que el compilador de c++ sí que las
+ * procesa correctamente */
+
 #ifndef NO_DIAGRAM
 #include <utility>
 #include <iostream>
@@ -57,7 +57,7 @@ int main()
   string command;
   while (cin >> command and command != "fin")
   {
-    if (command == "leer_rio" or command == "lr") //
+    if (command == "leer_rio" or command == "lr")
     {
       cout << '#' << command << endl;
       c.leer_estructura();
@@ -87,7 +87,7 @@ int main()
       cout << '#' << command << endl;
       c.modificar_barco(idc, idv, cantc, cantv);
     }
-    else if (command == "escribir_barco" or command == "eb") //
+    else if (command == "escribir_barco" or command == "eb")
     {
       cout << '#' << command << endl;
       c.escribir_barco();

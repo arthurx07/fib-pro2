@@ -66,41 +66,74 @@ void Ciudad::comerciar(Ciudad &c)
   map<Producto, Atributos>::iterator it2 = c.inventario.begin();
   while (it1 != inventario.end() and it2 != c.inventario.end())
   {
-    if (it1->first == it2->first)
+    if (it1->first < it2->first) ++it1;
+    else if (it2->first < it1->first) ++it2;
+    else // if (it1->first == it2->first)
     {
-      int dar = it1->second.posee - it1->second.necesita;
-      int rec = it2->second.necesita - it2->second.posee;
-      if (dar > 0 and rec > 0) {
+      // versión 1
+      // int dar = it1->second.posee - it1->second.necesita;
+      // int rec = it2->second.necesita - it2->second.posee;
+      // if (dar > 0 and rec > 0) {
+      //   rec = min(dar, rec);
+      //   it1->second.posee -= rec;
+      //   it2->second.posee += rec;
+      //
+      //   peso_total -= it1->first.consultar_peso()*rec;
+      //   volumen_total -= it1->first.consultar_volumen()*rec;
+      //   c.peso_total += it2->first.consultar_peso()*rec;
+      //   c.volumen_total += it2->first.consultar_volumen()*rec;
+      // }
+      // else
+      // {
+      //   dar = it2->second.posee - it2->second.necesita;
+      //   rec = it1->second.necesita - it1->second.posee;
+      //   if (dar > 0 and rec > 0) {
+      //     rec = min(dar, rec);
+      //     it1->second.posee += rec;
+      //     it2->second.posee -= rec;
+      //
+      //     peso_total += it1->first.consultar_peso()*rec;
+      //     volumen_total += it1->first.consultar_volumen()*rec;
+      //     c.peso_total -= it2->first.consultar_peso()*rec;
+      //     c.volumen_total -= it2->first.consultar_volumen()*rec;
+      //   }
+      // }
+
+      // versión 2
+      int posee1 = it1->second.posee; int necesita1 = it1->second.necesita;
+      int posee2 = it2->second.posee; int necesita2 = it2->second.necesita;
+      if (posee1 > necesita1 and posee2 < necesita2)
+      {
+        int dar = posee1 - necesita1;
+        int rec = necesita2 - posee2;
         rec = min(dar, rec);
+
         it1->second.posee -= rec;
         it2->second.posee += rec;
 
         peso_total -= it1->first.consultar_peso()*rec;
-        volumen_total -= it1->first.consultar_volumen()*rec;
         c.peso_total += it2->first.consultar_peso()*rec;
+        volumen_total -= it1->first.consultar_volumen()*rec;
         c.volumen_total += it2->first.consultar_volumen()*rec;
       }
-      else
+      if (posee2 > necesita2 and posee1 < necesita1)
       {
-        dar = it2->second.posee - it2->second.necesita;
-        rec = it1->second.necesita - it1->second.posee;
-        if (dar > 0 and rec > 0) {
-          rec = min(dar, rec);
-          it1->second.posee += rec;
-          it2->second.posee -= rec;
+        int dar = posee2 - necesita2;
+        int rec = necesita1 - posee1;
+        rec = min(dar, rec);
 
-          peso_total += it1->first.consultar_peso()*rec;
-          volumen_total += it1->first.consultar_volumen()*rec;
-          c.peso_total -= it2->first.consultar_peso()*rec;
-          c.volumen_total -= it2->first.consultar_volumen()*rec;
-        }
+        it1->second.posee += rec;
+        it2->second.posee -= rec;
+
+        peso_total += it1->first.consultar_peso()*rec;
+        c.peso_total -= it2->first.consultar_peso()*rec;
+        volumen_total += it1->first.consultar_volumen()*rec;
+        c.volumen_total -= it2->first.consultar_volumen()*rec;
       }
 
       ++it1;
       ++it2;
     }
-    else if (it1->first > it2->first) ++it2;
-    else if (it1->first < it2->first) ++it1;
   }
 }
 

@@ -11,7 +11,7 @@
 
 #ifndef NO_DIAGRAM
 #include <map>
-#include <list>
+#include <stack>
 #include <utility>
 #include "BinTree.hh"
 #include <iostream>
@@ -149,7 +149,7 @@ public:
 
   /** @brief Lectura del inventario de una ciudad
       \pre El canal estándard de entrada contiene el número de productos, y para cada producto su id y cantidades en posesión y que necesita la ciudad.
-      \post Se han añadido los productos a la ciudad
+      \post Se ha reemplazado el anterior inventario que tenía la ciudad por el leído del canal estándard de entrada
       \coste Logarítmico respecto al número de ciudades y al tamaño de la ciudad con identificador id
   */
   void leer_ciudad(string id);
@@ -196,6 +196,6 @@ private:
       \post Se busca la ruta más corta y más a la derecha (mirando río arriba) en la que el barco vende/compra todos sus productos, si no se cumple, en la que vende/compra más productos.
       \coste Lineal respecto al número de ciudades
   */
-  void buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &comprar, int &vender) const;
+  void buscar_ruta_recursiva(BinTree<string> t, stack<string> &ruta, int &comprar, int &vender) const;
 };
 #endif

@@ -17,8 +17,8 @@ void Barco::modificar(int id_compra, int id_venta, int cantidad_compra, int cant
     cout << "error: no se puede comprar y vender el mismo producto" << endl;
   else // if (cantidad_compra*cantidad_venta > 0 and cantidad_compra + cantidad_venta > 0)
   {
-    vender = make_pair(id_venta, cantidad_venta);
     comprar = make_pair(id_compra, cantidad_compra);
+    vender = make_pair(id_venta, cantidad_venta);
   }
 }
 

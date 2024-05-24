@@ -27,22 +27,38 @@ BinTree<string> Cuenca::leer_estructura_recursiva()
 
 void Cuenca::leer_estructura()
 {
-  ciudades = map<string, Ciudad>(); // vaciar el mapa
+  ciudades = map<string, Ciudad>();
   estructura = leer_estructura_recursiva();
   barco.olvidar();
 }
 
+// no me acaba de gustar, preferiría un cin >> ciudades[id] pero no se me ocurre :(
 void Cuenca::leer_ciudad(string id)
 {
   int n;
   cin >> n;
-  for (int i = 0; i < n; ++i)
+
+  if (not existe_ciudad(id))
   {
-    int idp, posee, necesita;
-    cin >> idp >> posee >> necesita;
-    if (existe_ciudad(id)) ciudades[id].poner_producto(productos[idp], posee, necesita);
+    cout << "error: no existe la ciudad" << endl;
+    for (int i = 0; i < n; ++i) {
+      string s;
+      getline(cin, s);
+    }
   }
-  if (not existe_ciudad(id)) cout << "error: no existe la ciudad" << endl;
+  else
+  {
+    ciudades[id] = Ciudad(); // vaciar inventario + peso_total y volumen_total = 0
+    for (int i = 0; i < n; ++i)
+    {
+      int idp, posee, necesita;
+      cin >> idp >> posee >> necesita;
+      if (not existe_producto(idp))
+        cout << "error: no existe el producto" << endl;
+      else if (necesita > 0 and posee >= 0)
+        ciudades[id].poner_producto(productos[idp], posee, necesita);
+    }
+  }
 }
 
 void Cuenca::agregar_producto(Producto &p)
@@ -62,8 +78,11 @@ void Cuenca::poner_prod(string idc, int idp, int posee, int necesita)
   if (existe_producto(idp))
   {
     if (existe_ciudad(idc)) {
-      if (ciudades[idc].poner_producto(productos[idp], posee, necesita))
-        cout << ciudades[idc].consultar_peso() << ' ' << ciudades[idc].consultar_volumen() << endl;
+      if (necesita > 0)
+      {
+        if (ciudades[idc].poner_producto(productos[idp], posee, necesita))
+          cout << ciudades[idc].consultar_peso() << ' ' << ciudades[idc].consultar_volumen() << endl;
+      }
     }
     else cout << "error: no existe la ciudad" << endl;
   }
@@ -75,8 +94,11 @@ void Cuenca::modificar_prod(string idc, int idp, int posee, int necesita)
   if (existe_producto(idp))
   {
     if (existe_ciudad(idc)) {
-      if (ciudades[idc].modificar_producto(productos[idp], posee, necesita))
-        cout << ciudades[idc].consultar_peso() << ' ' << ciudades[idc].consultar_volumen() << endl;
+      if (necesita > 0)
+      {
+        if (ciudades[idc].modificar_producto(productos[idp], posee, necesita))
+          cout << ciudades[idc].consultar_peso() << ' ' << ciudades[idc].consultar_volumen() << endl;
+      }
     }
     else cout << "error: no existe la ciudad" << endl;
   }
@@ -112,7 +134,7 @@ void Cuenca::redistribuir_recursiva(BinTree<string> t)
     if (not t.left().empty()) {
       comerciar(t.value(), t.left().value());
       redistribuir_recursiva(t.left()); // ciudad río arriba a mano derecha
-    } // debería funcionar igual sin incluir red_rec en el if
+    } // debería funcionar igual sin incluir redistribuir_rec en el if
 
     if (not t.right().empty()) {
       comerciar(t.value(), t.right().value());
@@ -126,8 +148,7 @@ void Cuenca::redistribuir()
   redistribuir_recursiva(estructura);
 }
 
-// note: think to implement it as: void func(list<string> &l) or list<string> func();
-void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &comprar, int &vender) const
+void Cuenca::buscar_ruta_recursiva(BinTree<string> t, stack<string> &ruta, int &comprar, int &vender) const
 {
   if (not t.empty())
   {
@@ -147,23 +168,33 @@ void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &c
     }
 
     // NOTE: always comprar >= 0 and vender >= 0;
-    if (comprar == 0 and vender == 0)
-      ruta.push_front(t.value());
-    else
+    if (comprar != 0 and vender != 0)
     {
       int ci = comprar;
       int vi = vender;
-      list<string> ruta_izquierda;
+      stack<string> ruta_izquierda;
       buscar_ruta_recursiva(t.left(), ruta_izquierda, ci, vi);
 
       int cd = comprar;
       int vd = vender;
-      list<string> ruta_derecha;
+      stack<string> ruta_derecha;
       buscar_ruta_recursiva(t.right(), ruta_derecha, cd, vd);
 
       if (not (comprar == ci and ci == cd and vender == vi and vi == vd))
       {
-        if (ci + vi == cd + vd)
+        if (ci + vi < cd + vd)
+        {
+          comprar = ci;
+          vender = vi;
+          ruta = ruta_izquierda;
+        }
+        else if (cd + vd < ci + vi)
+        {
+          comprar = cd;
+          vender = vd;
+          ruta = ruta_derecha;
+        }
+        else // if (ci + vi == cd + vd)
         {
           if (ruta_izquierda.size() <= ruta_derecha.size())
           {
@@ -178,27 +209,15 @@ void Cuenca::buscar_ruta_recursiva(BinTree<string> t, list<string> &ruta, int &c
             ruta = ruta_derecha;
           }
         }
-        else if (ci + vi < cd + vd)
-        {
-          comprar = ci;
-          vender = vi;
-          ruta = ruta_izquierda;
-        }
-        else // if (cd + vd < ci + vi)
-        {
-          comprar = cd;
-          vender = vd;
-          ruta = ruta_derecha;
-        }
       }
-      ruta.push_front(t.value());
     }
+    ruta.push(t.value());
   }
 }
 
 int Cuenca::hacer_viaje()
 {
-  list<string> ruta;
+  stack<string> ruta;
 
   int cantc, cantv, comprar, vender;
   cantc = comprar = barco.consultar_cantidad_comprar();
@@ -207,35 +226,35 @@ int Cuenca::hacer_viaje()
 
   if (comprar != cantc or vender != cantv)
   {
-    list<string>::iterator idfin = ruta.end();
-    barco.agregar_viaje(*--idfin);
-
-    for (list<string>::iterator it = ruta.begin(); it != ruta.end(); ++it)
+    while (not ruta.empty())
     {
+      string idc = ruta.top();
       Producto pc = productos[barco.consultar_id_comprar()];
-      if (ciudades[*it].tiene_producto(pc))
+      if (ciudades[idc].tiene_producto(pc))
       {
-        pair<int, int> atributos = ciudades[*it].consultar_producto(pc);
-        int diferencia = atributos.first - atributos.second;
+        pair<int, int> atributos = ciudades[idc].consultar_producto(pc);
+        int diferencia = atributos.first - atributos.second; // posee - necesita
         if (diferencia > 0)
         {
           int temp = min(diferencia, cantc);
-          ciudades[*it].modificar_producto(pc, atributos.first - temp, atributos.second);
+          ciudades[idc].modificar_producto(pc, atributos.first - temp, atributos.second);
           cantc -= temp;
         }
       }
       Producto pv = productos[barco.consultar_id_vender()];
-      if (ciudades[*it].tiene_producto(pv))
+      if (ciudades[idc].tiene_producto(pv))
       {
-        pair<int, int> atributos = ciudades[*it].consultar_producto(pv);
-        int diferencia = atributos.second - atributos.first;
+        pair<int, int> atributos = ciudades[idc].consultar_producto(pv);
+        int diferencia = atributos.second - atributos.first; // necesita - posee
         if (diferencia > 0)
         {
           int temp = min(diferencia, cantv);
-          ciudades[*it].modificar_producto(pv, atributos.first + temp, atributos.second);
+          ciudades[idc].modificar_producto(pv, atributos.first + temp, atributos.second);
           cantv -= temp;
         }
       }
+      ruta.pop();
+      if (ruta.empty()) barco.agregar_viaje(idc);
     }
   }
 

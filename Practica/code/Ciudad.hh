@@ -51,14 +51,14 @@ public:
   // Modificadoras
 
   /** @brief Modificadora del producto
-      \pre necesita > 0
+      \pre necesita > 0 y posee >= 0
       \post Cierto si el parámetro implícito tiene el Producto p, entonces se procede a modificar las cantidades en posesión y de necesidad con respecto a este
       \coste Logarítmico respecto al tamaño del parámetro implícito
   */
   bool modificar_producto(const Producto &p, int posee, int necesita);
 
   /** @brief Adición de un nuevo producto
-      \pre necesita > 0
+      \pre necesita > 0 y posee >= 0
       \post Cierto si el parámetro implícito no tiene el Producto p, entonces se prodece a añadir en el inventario, con las cantidades definidas en posesión y de necesidad
       \coste Logarítmico respecto al tamaño del parámetro implícito
   */
