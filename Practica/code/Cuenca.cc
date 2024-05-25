@@ -171,7 +171,7 @@ void Cuenca::buscar_ruta_recursiva(BinTree<string> t, stack<string> &ruta, int &
     }
 
     // NOTE: always comprar >= 0 and vender >= 0;
-    if (comprar != 0 and vender != 0)
+    if (comprar > 0 or vender > 0)
     {
       int ci = comprar;
       int vi = vender;
