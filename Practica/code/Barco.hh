@@ -2,8 +2,8 @@
     @brief Especificación de la clase Barco
 */
 
-#ifndef _BARCO_HH_
-#define _BARCO_HH_
+#ifndef BARCO_HH
+#define BARCO_HH
 
 #ifndef NO_DIAGRAM
 #include <list>

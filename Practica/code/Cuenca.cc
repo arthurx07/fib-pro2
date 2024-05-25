@@ -56,7 +56,10 @@ void Cuenca::leer_ciudad(string id)
       if (not existe_producto(idp))
         cout << "error: no existe el producto" << endl;
       else if (necesita > 0 and posee >= 0)
-        ciudades[id].poner_producto(productos[idp], posee, necesita);
+      {
+        if (ciudades[id].tiene_producto(productos[idp])) ciudades[id].modificar_producto(productos[idp], posee, necesita);
+        else ciudades[id].poner_producto(productos[idp], posee, necesita);
+      }
     }
   }
 }

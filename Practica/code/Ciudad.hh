@@ -2,8 +2,8 @@
     @brief Especificación de la clase Ciudad
 */
 
-#ifndef _CIUDAD_HH_
-#define _CIUDAD_HH_
+#ifndef CIUDAD_HH
+#define CIUDAD_HH
 
 #include "Producto.hh"
 

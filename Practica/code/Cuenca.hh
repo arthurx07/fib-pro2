@@ -2,8 +2,8 @@
     @brief Especificación de la clase Cuenca
 */
 
-#ifndef _CUENCA_HH_
-#define _CUENCA_HH_
+#ifndef CUENCA_HH
+#define CUENCA_HH
 
 #include "Barco.hh"
 #include "Producto.hh"
