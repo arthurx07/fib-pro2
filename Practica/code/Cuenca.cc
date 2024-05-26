@@ -238,9 +238,9 @@ int Cuenca::hacer_viaje()
         int diferencia = atributos.first - atributos.second; // posee - necesita
         if (diferencia > 0)
         {
-          int temp = min(diferencia, cantc);
-          ciudades[idc].modificar_producto(pc, atributos.first - temp, atributos.second);
-          cantc -= temp;
+          int minimo = min(diferencia, cantc);
+          ciudades[idc].modificar_producto(pc, atributos.first - minimo, atributos.second);
+          cantc -= minimo;
         }
       }
       Producto pv = productos[barco.consultar_id_vender()];
@@ -250,9 +250,9 @@ int Cuenca::hacer_viaje()
         int diferencia = atributos.second - atributos.first; // necesita - posee
         if (diferencia > 0)
         {
-          int temp = min(diferencia, cantv);
-          ciudades[idc].modificar_producto(pv, atributos.first + temp, atributos.second);
-          cantv -= temp;
+          int minimo = min(diferencia, cantv);
+          ciudades[idc].modificar_producto(pv, atributos.first + minimo, atributos.second);
+          cantv -= minimo;
         }
       }
       ruta.pop();

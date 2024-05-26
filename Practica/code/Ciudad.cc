@@ -8,6 +8,8 @@ Ciudad::Ciudad()
 {
   peso_total = volumen_total = 0;
   inventario = map<Producto, Atributos>();
+  // nota: Uso un map Producto -> Atributo para poder saber, en la función
+  //  comerciar, los pesos y volúmenes de cada producto.
 }
 
 bool Ciudad::modificar_producto(const Producto &p, int posee, int necesita)
