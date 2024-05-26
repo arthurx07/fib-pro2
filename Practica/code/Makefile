@@ -18,8 +18,14 @@ Producto.o: Producto.cc Producto.hh
 program.o: program.cc Cuenca.hh Producto.hh
 	g++ -c program.cc $(OPCIONES)
 
-tar: Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc
-	tar -cvf practica.tar Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc
+doxygen: Doxyfile Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Producto.cc Producto.hh program.cc
+	doxygen && zip -r html html
+
+justificacion: justificacion.ms
+	preconv justificacion.ms | tbl | refer -PS -e | groff -me -ms -T pdf > Justificación.pdf ;;
+
+tar: Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc doxygen justificacion
+	tar -cvf practica.tar Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc html.zip Justificación.pdf
 
 clean:
 	rm *.o
