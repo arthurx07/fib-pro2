@@ -50,7 +50,7 @@ public:
   // Modificadoras
 
   /** @brief Modificadora del barco
-      \pre id_compra != id_venta, cantidad_compra*cantidad_venta > 0, cantidad_compra + cantidad_venta > 0
+      \pre id_compra != id_venta, cantidad_compra*cantidad_venta >= 0, cantidad_compra + cantidad_venta > 0
       \post El parámetro implícito pasa a tener un nuevo identificador de producto a comprar, identificador de producto a vender y nuevas cantidades del producto a comprar y del producto a vender
       \coste Constante
   */

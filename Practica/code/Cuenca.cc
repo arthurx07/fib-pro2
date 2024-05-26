@@ -32,7 +32,6 @@ void Cuenca::leer_estructura()
   barco.olvidar();
 }
 
-// no me acaba de gustar, preferiría un cin >> ciudades[id] pero no se me ocurre :(
 void Cuenca::leer_ciudad(string id)
 {
   int n;
@@ -170,7 +169,7 @@ void Cuenca::buscar_ruta_recursiva(BinTree<string> t, stack<string> &ruta, int &
       if (diferencia > 0) vender -= min(diferencia, vender);
     }
 
-    // NOTE: always comprar >= 0 and vender >= 0;
+    // nota: siempre comprar >= 0 y vender >=0
     if (comprar > 0 or vender > 0)
     {
       int ci = comprar;

@@ -12,38 +12,38 @@ Ciudad::Ciudad()
 
 bool Ciudad::modificar_producto(const Producto &p, int posee, int necesita)
 {
-  // nota: necesita > 0
-  if (not tiene_producto(p)) {
-    cout << "error: la ciudad no tiene el producto" << endl;
-    return false;
+  if (not tiene_producto(p)) cout << "error: la ciudad no tiene el producto" << endl;
+  else if (necesita > 0)
+  {
+    pair<int, int> producto_anterior = consultar_producto(p);
+
+    Atributos at;
+    at.posee = posee;
+    at.necesita = necesita;
+    inventario[p] = at;
+
+    peso_total += p.consultar_peso()*(posee - producto_anterior.first);
+    volumen_total += p.consultar_volumen()*(posee - producto_anterior.first);
+    return true;
   }
-  pair<int, int> producto_anterior = consultar_producto(p);
-
-  Atributos at;
-  at.posee = posee;
-  at.necesita = necesita;
-  inventario[p] = at;
-
-  peso_total += p.consultar_peso()*(posee - producto_anterior.first);
-  volumen_total += p.consultar_volumen()*(posee - producto_anterior.first);
-  return true;
+  return false;
 }
 
 bool Ciudad::poner_producto(const Producto &p, int posee, int necesita)
 {
-  // nota: necesita > 0
-  if (tiene_producto(p)) {
-    cout << "error: la ciudad ya tiene el producto" << endl;
-    return false;
-  }
-  Atributos at;
-  at.posee = posee;
-  at.necesita = necesita;
-  inventario[p] = at;
+  if (tiene_producto(p)) cout << "error: la ciudad ya tiene el producto" << endl;
+  else if (necesita > 0)
+  {
+    Atributos at;
+    at.posee = posee;
+    at.necesita = necesita;
+    inventario[p] = at;
 
-  peso_total += p.consultar_peso()*posee;
-  volumen_total += p.consultar_volumen()*posee;
-  return true;
+    peso_total += p.consultar_peso()*posee;
+    volumen_total += p.consultar_volumen()*posee;
+    return true;
+  }
+  return false;
 }
 
 bool Ciudad::quitar_producto(const Producto &p)

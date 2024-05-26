@@ -5,10 +5,6 @@
 #ifndef PRODUCTO_HH
 #define PRODUCTO_HH
 
-// NO_DIAGRAM: esto hace que el Doxyfile de la sesión no
-// incluya estas clases en los diagramas modulares, 
-// mientras que el compilador de c++ 
-// sí que las procesa correctamente
 #ifndef NO_DIAGRAM
 #include <iostream>
 #endif
