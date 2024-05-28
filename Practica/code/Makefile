@@ -22,10 +22,10 @@ doxygen: Doxyfile Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Prod
 	doxygen && zip -r html html
 
 justificacion: justificacion.ms
-	preconv justificacion.ms | tbl | refer -PS -e | groff -me -ms -T pdf > Justificación.pdf ;;
+	preconv justificacion.ms | tbl | refer -PS -e | groff -me -ms -T pdf > justificacion.pdf
 
-tar: Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc doxygen justificacion
-	tar -cvf practica.tar Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc html.zip Justificación.pdf
+tar: Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc Doxyfile doxygen justificacion
+	tar -cvf practica.tar Barco.cc Barco.hh Ciudad.cc Ciudad.hh Cuenca.cc Cuenca.hh Makefile Producto.cc Producto.hh program.cc Doxyfile html.zip justificacion.pdf
 
 clean:
 	rm *.o

@@ -192,8 +192,8 @@ private:
   void redistribuir_recursiva(BinTree<string> t);
 
   /** @brief Busca recursiva de la ruta a realizar por el barco
-      \pre cierto
-      \post Se busca la ruta más corta y más a la derecha (mirando río arriba) en la que el barco vende/compra todos sus productos, si no se cumple, en la que vende/compra más productos.
+      \pre comprar >= 0 y vender >= 0
+      \post La pila <em>ruta</em> es la ruta más corta y más a la derecha (mirando río arriba) en la que el barco vende/compra todos sus productos, si no se cumple, en la que vende/compra más productos.
       \coste Lineal respecto al número de ciudades
   */
   void buscar_ruta_recursiva(BinTree<string> t, stack<string> &ruta, int &comprar, int &vender) const;
