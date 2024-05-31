@@ -1,0 +1,157 @@
+\doxysection{Referencia del archivo Producto.\+cc}
+\hypertarget{Producto_8cc}{}\label{Producto_8cc}\index{Producto.cc@{Producto.cc}}
+
+
+Implementación de la clase \doxylink{classProducto}{Producto}.  
+
+
+{\ttfamily \#include "{}Producto.\+hh"{}}\newline
+Gráfico de dependencias incluidas en Producto.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{Producto_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{Producto_8cc_a6427a07b0714d4d5274a38486a37f274}{operator$<$}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p1, const \mbox{\hyperlink{classProducto}{Producto}} \&p2)
+\item 
+bool \mbox{\hyperlink{Producto_8cc_ad2299a006b06e9427c1ab074c83e8795}{operator$>$}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p1, const \mbox{\hyperlink{classProducto}{Producto}} \&p2)
+\item 
+bool \mbox{\hyperlink{Producto_8cc_a8a09376489c76b21e47d133302ea5a5b}{operator==}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p1, const \mbox{\hyperlink{classProducto}{Producto}} \&p2)
+\item 
+std\+::istream \& \mbox{\hyperlink{Producto_8cc_ac0ad65bba17cfe1dcd7e6058aa501dfc}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classProducto}{Producto}} \&p)
+\item 
+std\+::ostream \& \mbox{\hyperlink{Producto_8cc_ae76d42d1b0c4463fa176df099020934b}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classProducto}{Producto}} \&p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Implementación de la clase \doxylink{classProducto}{Producto}. 
+
+
+
+Definición en el archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{Producto_8cc_a6427a07b0714d4d5274a38486a37f274}\label{Producto_8cc_a6427a07b0714d4d5274a38486a37f274} 
+\index{Producto.cc@{Producto.cc}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Producto.cc@{Producto.cc}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p2 }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el primer producto es menor que el segundo 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00034}{34}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ La\ comparación\ 'menor\ que'\ se\ basa\ en\ comparar\ los\ identificadores\ de\ ambos\ productos}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordflow}{return}\ p1.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ <\ p2.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Producto_8cc_ae76d42d1b0c4463fa176df099020934b}\label{Producto_8cc_ae76d42d1b0c4463fa176df099020934b} 
+\index{Producto.cc@{Producto.cc}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Producto.cc@{Producto.cc}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00057}{57}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordflow}{if}\ (p.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ !=\ 0)\ os\ <<\ p.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{00060\ \ \ os\ <<\ p.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ p.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Producto_8cc_a8a09376489c76b21e47d133302ea5a5b}\label{Producto_8cc_a8a09376489c76b21e47d133302ea5a5b} 
+\index{Producto.cc@{Producto.cc}!operator==@{operator==}}
+\index{operator==@{operator==}!Producto.cc@{Producto.cc}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p2 }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si ambos productos son el mismo 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00045}{45}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Devuelve\ la\ comparación\ entre\ los\ diferentes\ valores\ privados\ de\ ambos\ productos}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{return}\ (p1.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ ==\ p2.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}})\ and\ (p1.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ ==\ p2.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}})\ and\ (p1.volumen\ ==\ p2.volumen);}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Producto_8cc_ad2299a006b06e9427c1ab074c83e8795}\label{Producto_8cc_ad2299a006b06e9427c1ab074c83e8795} 
+\index{Producto.cc@{Producto.cc}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Producto.cc@{Producto.cc}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p2 }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el primer producto es mayor que el segundo 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00040}{40}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{return}\ p2\ <\ p1;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{Producto_8cc_ac0ad65bba17cfe1dcd7e6058aa501dfc}\label{Producto_8cc_ac0ad65bba17cfe1dcd7e6058aa501dfc} 
+\index{Producto.cc@{Producto.cc}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Producto.cc@{Producto.cc}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classProducto}{Producto}} \&}]{p }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00051}{51}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ is\ >>\ p.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ >>\ p.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}

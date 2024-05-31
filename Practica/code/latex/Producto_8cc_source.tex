@@ -1,0 +1,64 @@
+\doxysection{Producto.\+cc}
+\hypertarget{Producto_8cc_source}{}\label{Producto_8cc_source}\mbox{\hyperlink{Producto_8cc}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Producto_8hh}{Producto.hh}}"{}}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00007}\mbox{\hyperlink{classProducto_abdf37557185a4660251488b2db47fc7d}{00007}}\ \mbox{\hyperlink{classProducto_abdf37557185a4660251488b2db47fc7d}{Producto::Producto}}()}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00009}00009\ \ \ \textcolor{comment}{//\ Inicializa\ un\ producto\ con\ los\ valores\ privados\ nulos}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00010}00010\ \ \ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ =\ \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00013}\mbox{\hyperlink{classProducto_a17c534ba49282c22547ef5f41a46c89d}{00013}}\ \mbox{\hyperlink{classProducto_abdf37557185a4660251488b2db47fc7d}{Producto::Producto}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ peso,\ \textcolor{keywordtype}{int}\ volumen)}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00015}00015\ \ \ this-\/>\textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00016}00016\ \ \ this-\/>peso\ =\ \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00017}00017\ \ \ this-\/>volumen\ =\ \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00020}\mbox{\hyperlink{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}{00020}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}{Producto::consultar\_id}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00021}00021\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00022}00022\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00025}\mbox{\hyperlink{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}{00025}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}{Producto::consultar\_peso}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00026}00026\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00027}00027\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00029}\mbox{\hyperlink{classProducto_ac51d2327dd5d4ff66029c7a985eab3f7}{00029}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classProducto_ac51d2327dd5d4ff66029c7a985eab3f7}{Producto::consultar\_volumen}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00030}00030\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00031}00031\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00034}\mbox{\hyperlink{classProducto_a6427a07b0714d4d5274a38486a37f274}{00034}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Producto_8cc_a6427a07b0714d4d5274a38486a37f274}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p2)}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00036}00036\ \ \ \textcolor{comment}{//\ La\ comparación\ 'menor\ que'\ se\ basa\ en\ comparar\ los\ identificadores\ de\ ambos\ productos}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00037}00037\ \ \ \textcolor{keywordflow}{return}\ p1.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ <\ p2.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00040}\mbox{\hyperlink{classProducto_ad2299a006b06e9427c1ab074c83e8795}{00040}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Producto_8cc_ad2299a006b06e9427c1ab074c83e8795}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p2)}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00042}00042\ \ \ \textcolor{keywordflow}{return}\ p2\ <\ p1;}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00045}\mbox{\hyperlink{classProducto_a8a09376489c76b21e47d133302ea5a5b}{00045}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Producto_8cc_a8a09376489c76b21e47d133302ea5a5b}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p2)}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00047}00047\ \ \ \textcolor{comment}{//\ Devuelve\ la\ comparación\ entre\ los\ diferentes\ valores\ privados\ de\ ambos\ productos}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00048}00048\ \ \ \textcolor{keywordflow}{return}\ (p1.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ ==\ p2.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}})\ and\ (p1.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ ==\ p2.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}})\ and\ (p1.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}}\ ==\ p2.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}});}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00051}\mbox{\hyperlink{Producto_8cc_ac0ad65bba17cfe1dcd7e6058aa501dfc}{00051}}\ std::istream\ \&\mbox{\hyperlink{Producto_8cc_ac0ad65bba17cfe1dcd7e6058aa501dfc}{operator>>}}(std::istream\ \&is,\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p)}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00053}00053\ \ \ is\ >>\ p.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ >>\ p.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00054}00054\ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00057}\mbox{\hyperlink{Producto_8cc_ae76d42d1b0c4463fa176df099020934b}{00057}}\ std::ostream\ \&\mbox{\hyperlink{Producto_8cc_ae76d42d1b0c4463fa176df099020934b}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classProducto}{Producto}}\ \&p)}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00059}00059\ \ \ \textcolor{keywordflow}{if}\ (p.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ !=\ 0)\ os\ <<\ p.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00060}00060\ \ \ os\ <<\ p.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ p.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00061}00061\ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{Producto_8cc_source_l00062}00062\ \}}
+
+\end{DoxyCode}

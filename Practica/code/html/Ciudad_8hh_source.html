@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Comercio Fluvial. Práctica de PRO2 de Artur Leivar Guiu: Archivo de código fuente Ciudad.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Comercio Fluvial. Práctica de PRO2 de Artur Leivar Guiu
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Ciudad.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Ciudad_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef CIUDAD_HH</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define CIUDAD_HH</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="Producto_8hh.html">Producto.hh</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Clase Ciudad</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classCiudad.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classCiudad.html">Ciudad</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classCiudad.html#acca02fdeea122b66162683bdb4a233e0">   32</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="classCiudad.html#acca02fdeea122b66162683bdb4a233e0">peso_total</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classCiudad.html#a8f8767e000c1d7e9611bd0299d4942d9">   34</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="classCiudad.html#a8f8767e000c1d7e9611bd0299d4942d9">volumen_total</a>;</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structCiudad_1_1Atributos.html">   36</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structCiudad_1_1Atributos.html">Atributos</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structCiudad_1_1Atributos.html#ab6da06f3809adbb764b301750df12329">   37</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structCiudad_1_1Atributos.html#ae2db64f4905acb71fb2f6b16cefc8925">posee</a>, <a class="code hl_variable" href="structCiudad_1_1Atributos.html#ab6da06f3809adbb764b301750df12329">necesita</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  };</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classCiudad.html#ab8931e827eef3045e1897474d5efcb22">   40</a></span>  map&lt;Producto, Atributos&gt; <a class="code hl_variable" href="classCiudad.html#ab8931e827eef3045e1897474d5efcb22">inventario</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="comment">// Constructora</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <a class="code hl_function" href="classCiudad.html#a58cb38dda8085e38bb0358ff54ca0e0c">Ciudad</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="comment">// Modificadoras</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classCiudad.html#ade81e23af54016816d8a39810109753b">modificar_producto</a>(<span class="keyword">const</span> <a class="code hl_class" href="classProducto.html">Producto</a> &amp;p, <span class="keywordtype">int</span> posee, <span class="keywordtype">int</span> necesita);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classCiudad.html#a0645a6def9d4a2f31abca4fa4983b4d2">poner_producto</a>(<span class="keyword">const</span> <a class="code hl_class" href="classProducto.html">Producto</a> &amp;p, <span class="keywordtype">int</span> posee, <span class="keywordtype">int</span> necesita);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classCiudad.html#a99db0ddd81eb9df4b1531ef11806da51">quitar_producto</a>(<span class="keyword">const</span> <a class="code hl_class" href="classProducto.html">Producto</a> &amp;p);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classCiudad.html#ae427a29bab080b232d4f8c80a812b241">comerciar</a>(<a class="code hl_class" href="classCiudad.html">Ciudad</a> &amp;c);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="comment">// Consultoras</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classCiudad.html#a835d370215b5e3d872a8bb31fb6c884a">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classCiudad.html#a697fac169a3e7a7fda07e6987488a9cd">consultar_peso</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classCiudad.html#af67171a9026bb7fd3c65be2419029abf">consultar_volumen</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classCiudad.html#aa23358c5f63201ca32246d957cab5c75">tiene_producto</a>(<span class="keyword">const</span> <a class="code hl_class" href="classProducto.html">Producto</a> &amp;p) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  pair&lt;int, int&gt; <a class="code hl_function" href="classCiudad.html#acc7cdac40707e2c31357fa55e05b44ad">consultar_producto</a>(<span class="keyword">const</span> <a class="code hl_class" href="classProducto.html">Producto</a> &amp;p) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="comment">// Escritura</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <span class="keyword">friend</span> ostream &amp;<a class="code hl_friend" href="classCiudad.html#a2efd1d4a31730967b3269c66fc96fc46">operator&lt;&lt;</a>(ostream &amp;os, <span class="keyword">const</span> <a class="code hl_class" href="classCiudad.html">Ciudad</a> &amp;c);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>};</div>
+</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aProducto_8hh_html"><div class="ttname"><a href="Producto_8hh.html">Producto.hh</a></div><div class="ttdoc">Especificación de la clase Producto.</div></div>
+<div class="ttc" id="aclassCiudad_html"><div class="ttname"><a href="classCiudad.html">Ciudad</a></div><div class="ttdoc">Representa la información y las operaciones asociadas a una Ciudad.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00028">Ciudad.hh:28</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a0645a6def9d4a2f31abca4fa4983b4d2"><div class="ttname"><a href="classCiudad.html#a0645a6def9d4a2f31abca4fa4983b4d2">Ciudad::poner_producto</a></div><div class="ttdeci">bool poner_producto(const Producto &amp;p, int posee, int necesita)</div><div class="ttdoc">Adición de un nuevo producto.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00034">Ciudad.cc:34</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a2efd1d4a31730967b3269c66fc96fc46"><div class="ttname"><a href="classCiudad.html#a2efd1d4a31730967b3269c66fc96fc46">Ciudad::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;os, const Ciudad &amp;c)</div><div class="ttdoc">Operación de escritura.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00128">Ciudad.cc:128</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a58cb38dda8085e38bb0358ff54ca0e0c"><div class="ttname"><a href="classCiudad.html#a58cb38dda8085e38bb0358ff54ca0e0c">Ciudad::Ciudad</a></div><div class="ttdeci">Ciudad()</div><div class="ttdoc">Creadora por defecto.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00007">Ciudad.cc:7</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a697fac169a3e7a7fda07e6987488a9cd"><div class="ttname"><a href="classCiudad.html#a697fac169a3e7a7fda07e6987488a9cd">Ciudad::consultar_peso</a></div><div class="ttdeci">int consultar_peso() const</div><div class="ttdoc">Consultora del peso total.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00099">Ciudad.cc:99</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a835d370215b5e3d872a8bb31fb6c884a"><div class="ttname"><a href="classCiudad.html#a835d370215b5e3d872a8bb31fb6c884a">Ciudad::size</a></div><div class="ttdeci">int size() const</div><div class="ttdoc">Consultora del tamaño.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00094">Ciudad.cc:94</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a8f8767e000c1d7e9611bd0299d4942d9"><div class="ttname"><a href="classCiudad.html#a8f8767e000c1d7e9611bd0299d4942d9">Ciudad::volumen_total</a></div><div class="ttdeci">int volumen_total</div><div class="ttdoc">Volumen total de la ciudad.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00034">Ciudad.hh:34</a></div></div>
+<div class="ttc" id="aclassCiudad_html_a99db0ddd81eb9df4b1531ef11806da51"><div class="ttname"><a href="classCiudad.html#a99db0ddd81eb9df4b1531ef11806da51">Ciudad::quitar_producto</a></div><div class="ttdeci">bool quitar_producto(const Producto &amp;p)</div><div class="ttdoc">Eliminación de un producto.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00051">Ciudad.cc:51</a></div></div>
+<div class="ttc" id="aclassCiudad_html_aa23358c5f63201ca32246d957cab5c75"><div class="ttname"><a href="classCiudad.html#aa23358c5f63201ca32246d957cab5c75">Ciudad::tiene_producto</a></div><div class="ttdeci">bool tiene_producto(const Producto &amp;p) const</div><div class="ttdoc">Consultora de existencia de un producto.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00108">Ciudad.cc:108</a></div></div>
+<div class="ttc" id="aclassCiudad_html_ab8931e827eef3045e1897474d5efcb22"><div class="ttname"><a href="classCiudad.html#ab8931e827eef3045e1897474d5efcb22">Ciudad::inventario</a></div><div class="ttdeci">map&lt; Producto, Atributos &gt; inventario</div><div class="ttdoc">Inventario de productos de la ciudad, con todos los productos existentes en la ciudad y de cada uno d...</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00040">Ciudad.hh:40</a></div></div>
+<div class="ttc" id="aclassCiudad_html_acc7cdac40707e2c31357fa55e05b44ad"><div class="ttname"><a href="classCiudad.html#acc7cdac40707e2c31357fa55e05b44ad">Ciudad::consultar_producto</a></div><div class="ttdeci">pair&lt; int, int &gt; consultar_producto(const Producto &amp;p) const</div><div class="ttdoc">Consultora de un producto.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00113">Ciudad.cc:113</a></div></div>
+<div class="ttc" id="aclassCiudad_html_acca02fdeea122b66162683bdb4a233e0"><div class="ttname"><a href="classCiudad.html#acca02fdeea122b66162683bdb4a233e0">Ciudad::peso_total</a></div><div class="ttdeci">int peso_total</div><div class="ttdoc">Peso total de la ciudad.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00032">Ciudad.hh:32</a></div></div>
+<div class="ttc" id="aclassCiudad_html_ade81e23af54016816d8a39810109753b"><div class="ttname"><a href="classCiudad.html#ade81e23af54016816d8a39810109753b">Ciudad::modificar_producto</a></div><div class="ttdeci">bool modificar_producto(const Producto &amp;p, int posee, int necesita)</div><div class="ttdoc">Modificadora del producto.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00015">Ciudad.cc:15</a></div></div>
+<div class="ttc" id="aclassCiudad_html_ae427a29bab080b232d4f8c80a812b241"><div class="ttname"><a href="classCiudad.html#ae427a29bab080b232d4f8c80a812b241">Ciudad::comerciar</a></div><div class="ttdeci">void comerciar(Ciudad &amp;c)</div><div class="ttdoc">Comercio con otra ciudad.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00064">Ciudad.cc:64</a></div></div>
+<div class="ttc" id="aclassCiudad_html_af67171a9026bb7fd3c65be2419029abf"><div class="ttname"><a href="classCiudad.html#af67171a9026bb7fd3c65be2419029abf">Ciudad::consultar_volumen</a></div><div class="ttdeci">int consultar_volumen() const</div><div class="ttdoc">Consultora del volumen total.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8cc_source.html#l00103">Ciudad.cc:103</a></div></div>
+<div class="ttc" id="aclassProducto_html"><div class="ttname"><a href="classProducto.html">Producto</a></div><div class="ttdoc">Representa el conjunto de características y operaciones definidas en un Producto.</div><div class="ttdef"><b>Definition</b> <a href="Producto_8hh_source.html#l00024">Producto.hh:24</a></div></div>
+<div class="ttc" id="astructCiudad_1_1Atributos_html"><div class="ttname"><a href="structCiudad_1_1Atributos.html">Ciudad::Atributos</a></div><div class="ttdoc">Atributos de un producto de la ciudad, en el que se define la cantidad de los que posee y necesita.</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00036">Ciudad.hh:36</a></div></div>
+<div class="ttc" id="astructCiudad_1_1Atributos_html_ab6da06f3809adbb764b301750df12329"><div class="ttname"><a href="structCiudad_1_1Atributos.html#ab6da06f3809adbb764b301750df12329">Ciudad::Atributos::necesita</a></div><div class="ttdeci">int necesita</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00037">Ciudad.hh:37</a></div></div>
+<div class="ttc" id="astructCiudad_1_1Atributos_html_ae2db64f4905acb71fb2f6b16cefc8925"><div class="ttname"><a href="structCiudad_1_1Atributos.html#ae2db64f4905acb71fb2f6b16cefc8925">Ciudad::Atributos::posee</a></div><div class="ttdeci">int posee</div><div class="ttdef"><b>Definition</b> <a href="Ciudad_8hh_source.html#l00037">Ciudad.hh:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

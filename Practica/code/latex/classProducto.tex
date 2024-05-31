@@ -1,0 +1,398 @@
+\doxysection{Referencia de la clase Producto}
+\hypertarget{classProducto}{}\label{classProducto}\index{Producto@{Producto}}
+
+
+Representa el conjunto de características y operaciones definidas en un \doxylink{classProducto}{Producto}.  
+
+
+
+
+{\ttfamily \#include $<$Producto.\+hh$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProducto_abdf37557185a4660251488b2db47fc7d}{Producto}} ()
+\begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProducto_a17c534ba49282c22547ef5f41a46c89d}{Producto}} (int \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}, int \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}, int \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}})
+\begin{DoxyCompactList}\small\item\em Creadora. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}{consultar\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Consultora del identificador de un producto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}{consultar\+\_\+peso}} () const
+\begin{DoxyCompactList}\small\item\em Consultora del peso de un producto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_ac51d2327dd5d4ff66029c7a985eab3f7}{consultar\+\_\+volumen}} () const
+\begin{DoxyCompactList}\small\item\em Consultora del volumen de un producto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}
+\begin{DoxyCompactList}\small\item\em Identificar del producto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}
+\begin{DoxyCompactList}\small\item\em Peso del producto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}}
+\begin{DoxyCompactList}\small\item\em Volumen del producto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classProducto_a6427a07b0714d4d5274a38486a37f274}{operator$<$}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p1, const \mbox{\hyperlink{classProducto}{Producto}} \&p2)
+\begin{DoxyCompactList}\small\item\em Comparación \textquotesingle{}menor que\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProducto_ad2299a006b06e9427c1ab074c83e8795}{operator$>$}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p1, const \mbox{\hyperlink{classProducto}{Producto}} \&p2)
+\begin{DoxyCompactList}\small\item\em Comparación \textquotesingle{}mayor que\textquotesingle{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProducto_a8a09376489c76b21e47d133302ea5a5b}{operator==}} (const \mbox{\hyperlink{classProducto}{Producto}} \&p1, const \mbox{\hyperlink{classProducto}{Producto}} \&p2)
+\begin{DoxyCompactList}\small\item\em Comparación de igualdad. \end{DoxyCompactList}\item 
+istream \& \mbox{\hyperlink{classProducto_aade7655e5deb79a689ddcd3f41d5bf5b}{operator$>$$>$}} (istream \&is, \mbox{\hyperlink{classProducto}{Producto}} \&p)
+\begin{DoxyCompactList}\small\item\em Operación de lectura. \end{DoxyCompactList}\item 
+ostream \& \mbox{\hyperlink{classProducto_af64bbd8d3503f5de5cd16f144018c05b}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{classProducto}{Producto}} \&p)
+\begin{DoxyCompactList}\small\item\em Operación de escritura. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa el conjunto de características y operaciones definidas en un \doxylink{classProducto}{Producto}. 
+
+Ofrece las operaciones de lectura, escritura y comparacion de dos productos diferentes. Además de poder consultar las características de un cierto producto. 
+
+Definición en la línea \mbox{\hyperlink{Producto_8hh_source_l00024}{24}} del archivo \mbox{\hyperlink{Producto_8hh_source}{Producto.\+hh}}.
+
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{classProducto_abdf37557185a4660251488b2db47fc7d}\label{classProducto_abdf37557185a4660251488b2db47fc7d} 
+\index{Producto@{Producto}!Producto@{Producto}}
+\index{Producto@{Producto}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{Producto()}{Producto()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Producto\+::\+Producto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creadora por defecto. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un producto vacío, con id, peso y volumen nulos. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00007}{7}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \textcolor{comment}{//\ Inicializa\ un\ producto\ con\ los\ valores\ privados\ nulos}}
+\DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ =\ \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}}\ =\ 0;}
+\DoxyCodeLine{00011\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classProducto_a17c534ba49282c22547ef5f41a46c89d}\label{classProducto_a17c534ba49282c22547ef5f41a46c89d} 
+\index{Producto@{Producto}!Producto@{Producto}}
+\index{Producto@{Producto}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{Producto()}{Producto()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Producto\+::\+Producto (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{peso,  }\item[{int}]{volumen }\end{DoxyParamCaption})}
+
+
+
+Creadora. 
+
+\begin{DoxyPrecond}{Precondición}
+id\texorpdfstring{$>$}{>}1 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un producto con id, peso y volumen dados. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00013}{13}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ this-\/>\textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{00016\ \ \ this-\/>\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ =\ \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}};}
+\DoxyCodeLine{00017\ \ \ this-\/>\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}}\ =\ \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{00018\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{classProducto_a7ceb0b0d1cd44139ffb7101911818f24}\label{classProducto_a7ceb0b0d1cd44139ffb7101911818f24} 
+\index{Producto@{Producto}!consultar\_id@{consultar\_id}}
+\index{consultar\_id@{consultar\_id}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{consultar\_id()}{consultar\_id()}}
+{\footnotesize\ttfamily int Producto\+::consultar\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del identificador de un producto. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es el identificador del producto 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00020}{20}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{00023\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4}\label{classProducto_a90e4cd5cab49d54c688b6ae4bec890e4} 
+\index{Producto@{Producto}!consultar\_peso@{consultar\_peso}}
+\index{consultar\_peso@{consultar\_peso}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{consultar\_peso()}{consultar\_peso()}}
+{\footnotesize\ttfamily int Producto\+::consultar\+\_\+peso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del peso de un producto. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es el peso del producto 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00025}{25}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}};}
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classProducto_ac51d2327dd5d4ff66029c7a985eab3f7}\label{classProducto_ac51d2327dd5d4ff66029c7a985eab3f7} 
+\index{Producto@{Producto}!consultar\_volumen@{consultar\_volumen}}
+\index{consultar\_volumen@{consultar\_volumen}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{consultar\_volumen()}{consultar\_volumen()}}
+{\footnotesize\ttfamily int Producto\+::consultar\+\_\+volumen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del volumen de un producto. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es el volumen del producto 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00029}{29}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}};}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de símbolos amigos y relacionados}
+\Hypertarget{classProducto_a6427a07b0714d4d5274a38486a37f274}\label{classProducto_a6427a07b0714d4d5274a38486a37f274} 
+\index{Producto@{Producto}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Comparación \textquotesingle{}menor que\textquotesingle{}. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el primer producto es menor que el segundo 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00034}{34}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ La\ comparación\ 'menor\ que'\ se\ basa\ en\ comparar\ los\ identificadores\ de\ ambos\ productos}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordflow}{return}\ p1.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ <\ p2.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}};}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classProducto_af64bbd8d3503f5de5cd16f144018c05b}\label{classProducto_af64bbd8d3503f5de5cd16f144018c05b} 
+\index{Producto@{Producto}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Operación de escritura. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito por el canal de salida el identificador, si no es nulo, seguido por el peso y el volumen del producto 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+\Hypertarget{classProducto_a8a09376489c76b21e47d133302ea5a5b}\label{classProducto_a8a09376489c76b21e47d133302ea5a5b} 
+\index{Producto@{Producto}!operator==@{operator==}}
+\index{operator==@{operator==}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Comparación de igualdad. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si ambos productos son el mismo 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00045}{45}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Devuelve\ la\ comparación\ entre\ los\ diferentes\ valores\ privados\ de\ ambos\ productos}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{return}\ (p1.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}}\ ==\ p2.\mbox{\hyperlink{classProducto_ac7e63125ce8671260d15e473e689efa4}{id}})\ and\ (p1.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}}\ ==\ p2.\mbox{\hyperlink{classProducto_a5432f079d648035abccdf978b5ab6c74}{peso}})\ and\ (p1.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}}\ ==\ p2.\mbox{\hyperlink{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}{volumen}});}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classProducto_ad2299a006b06e9427c1ab074c83e8795}\label{classProducto_ad2299a006b06e9427c1ab074c83e8795} 
+\index{Producto@{Producto}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p1,  }\item[{const \mbox{\hyperlink{classProducto}{Producto}} \&}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Comparación \textquotesingle{}mayor que\textquotesingle{}. 
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el primer producto es mayor que el segundo 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8cc_source_l00040}{40}} del archivo \mbox{\hyperlink{Producto_8cc_source}{Producto.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{return}\ p2\ <\ p1;}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}
+\Hypertarget{classProducto_aade7655e5deb79a689ddcd3f41d5bf5b}\label{classProducto_aade7655e5deb79a689ddcd3f41d5bf5b} 
+\index{Producto@{Producto}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{is,  }\item[{\mbox{\hyperlink{classProducto}{Producto}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Operación de lectura. 
+
+\begin{DoxyPrecond}{Precondición}
+El canal de entrada contiene dos enteros\+: el peso y el volumen del producto. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro p procede a tener el peso y el volumen leído del canal de entrada 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{classProducto_ac7e63125ce8671260d15e473e689efa4}\label{classProducto_ac7e63125ce8671260d15e473e689efa4} 
+\index{Producto@{Producto}!id@{id}}
+\index{id@{id}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Producto\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Identificar del producto. 
+
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8hh_source_l00029}{29}} del archivo \mbox{\hyperlink{Producto_8hh_source}{Producto.\+hh}}.
+
+\Hypertarget{classProducto_a5432f079d648035abccdf978b5ab6c74}\label{classProducto_a5432f079d648035abccdf978b5ab6c74} 
+\index{Producto@{Producto}!peso@{peso}}
+\index{peso@{peso}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{peso}{peso}}
+{\footnotesize\ttfamily int Producto\+::peso\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Peso del producto. 
+
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8hh_source_l00031}{31}} del archivo \mbox{\hyperlink{Producto_8hh_source}{Producto.\+hh}}.
+
+\Hypertarget{classProducto_a6d13a8d1a5dbe354f421e14e88a08273}\label{classProducto_a6d13a8d1a5dbe354f421e14e88a08273} 
+\index{Producto@{Producto}!volumen@{volumen}}
+\index{volumen@{volumen}!Producto@{Producto}}
+\doxysubsubsection{\texorpdfstring{volumen}{volumen}}
+{\footnotesize\ttfamily int Producto\+::volumen\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Volumen del producto. 
+
+
+
+Definición en la línea \mbox{\hyperlink{Producto_8hh_source_l00033}{33}} del archivo \mbox{\hyperlink{Producto_8hh_source}{Producto.\+hh}}.
+
+
+
+La documentación de esta clase está generada de los siguientes archivos\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Producto_8hh}{Producto.\+hh}}\item 
+\mbox{\hyperlink{Producto_8cc}{Producto.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,64 @@
+\doxysection{Referencia del archivo Ciudad.\+cc}
+\hypertarget{Ciudad_8cc}{}\label{Ciudad_8cc}\index{Ciudad.cc@{Ciudad.cc}}
+
+
+Implementación de la clase \doxylink{classCiudad}{Ciudad}.  
+
+
+{\ttfamily \#include "{}Ciudad.\+hh"{}}\newline
+Gráfico de dependencias incluidas en Ciudad.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{Ciudad_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{Ciudad_8cc_a2efd1d4a31730967b3269c66fc96fc46}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{classCiudad}{Ciudad}} \&c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Implementación de la clase \doxylink{classCiudad}{Ciudad}. 
+
+
+
+Definición en el archivo \mbox{\hyperlink{Ciudad_8cc_source}{Ciudad.\+cc}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{Ciudad_8cc_a2efd1d4a31730967b3269c66fc96fc46}\label{Ciudad_8cc_a2efd1d4a31730967b3269c66fc96fc46} 
+\index{Ciudad.cc@{Ciudad.cc}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Ciudad.cc@{Ciudad.cc}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classCiudad}{Ciudad}} \&}]{c }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondición}
+cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Por cada producto en el inventario se escribe en el canal de escritura su identificador, la cantidad en posesión y la cantidad que necesita el parámetro implícito. Finalmente, se escribe el peso total seguido del volumen total del parámetro implícito. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal respecto al tamaño del parámetro implícito 
+\end{DoxyParagraph}
+
+
+Definición en la línea \mbox{\hyperlink{Ciudad_8cc_source_l00128}{128}} del archivo \mbox{\hyperlink{Ciudad_8cc_source}{Ciudad.\+cc}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00129\ \{}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordflow}{for}\ (map<Producto,\ Ciudad::Atributos>::const\_iterator\ it\ =\ c.\mbox{\hyperlink{classCiudad_ab8931e827eef3045e1897474d5efcb22}{inventario}}.begin();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ it\ !=\ c.\mbox{\hyperlink{classCiudad_ab8931e827eef3045e1897474d5efcb22}{inventario}}.end();\ ++it)}
+\DoxyCodeLine{00132\ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ os\ <<\ it-\/>first.consultar\_id()\ <<\ \textcolor{charliteral}{'\ '}\ <<\ it-\/>second.posee\ <<\ \textcolor{charliteral}{'\ '}\ <<\ it-\/>second.necesita\ <<\ endl;}
+\DoxyCodeLine{00134\ \ \ \}}
+\DoxyCodeLine{00135\ \ \ os\ <<\ c.\mbox{\hyperlink{classCiudad_acca02fdeea122b66162683bdb4a233e0}{peso\_total}}\ <<\ \textcolor{charliteral}{'\ '}\ <<\ c.\mbox{\hyperlink{classCiudad_a8f8767e000c1d7e9611bd0299d4942d9}{volumen\_total}};}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00137\ \}}
+
+\end{DoxyCode}

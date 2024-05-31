@@ -17,6 +17,16 @@
 
 */
 
+/* Recordatorio:
+cabecera: de la operación, indica el nombre de la operación, el tipo de su
+    resultado y los tipos de sus parámetros;
+precondición: describe las propiedades que deben cumplir los argumentos que
+    contienen datos;
+postcondición: especifica las propiedades que deben cumplir los resultados y
+    los argumentos pasados por referencia no constante después de ejecutar la
+    operación.
+*/
+
 #include "Cuenca.hh"
 #include "Producto.hh"
 
