@@ -1,0 +1,42 @@
+#!/bin/env bash
+
+# test/example version of what could this script be, needs improvement 
+
+if [ -f ./Makefile ]; then EXEC="program.exe" # what 2 do ¿?
+elif [ -n "$1" ]; then EXEC="$(printf "$1" | cut -f 1 -d '.')"
+else EXEC="$(find -- *.cc | cut -f 1 -d '.')"
+fi
+
+if [ -f ./Makefile ]; then # change to ()
+  make
+else
+  P2PP="g++ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11 -fno-extended-identifiers" # /usr/bin/g++-10
+  $P2PP -o $EXEC $EXEC.cc
+fi
+
+# -x, to check if file is executable
+if [ ! -x "$EXEC" ]; then
+  echo 'You have to first compile your code and make it executable to be able to run this script.'
+  exit 1
+fi
+
+for inp in *.inp; do 
+  cor="${inp%.inp}.cor"
+  out="${inp%.inp}.out"
+  ./"$EXEC" < "$inp" > "$out"
+  if [ "$(cat "$cor")" != "$(cat "$out")" ]; then
+    diff -u "$cor" "$out"
+    # printf "%s output with %s is: \n%s\n%s contents are: \n%s\n" \
+    #   "$EXEC" "$inp" "$out" "$cor" "$(cat "$cor")"
+    exit 1
+  fi
+done
+
+if [ -f ./Makefile ]; then
+  tar -cvf 'program.tar' *.cc *.hh
+  make clean
+else
+  rm $EXEC
+fi
+
+printf "everything is correct :)\n"

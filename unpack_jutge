@@ -1,0 +1,15 @@
+#!/bin/env bash
+
+for i in *zip
+do
+  unzip "$i"
+  rm -i "$i"
+done
+
+find . -maxdepth 1 -name '*.tar' | sed -E 's/([^_]*)_.*/\1/' | xargs -I{} mv -i {}_ca-public.tar {}_ca
+
+for i in */*tar
+do
+  tar -xvf "$i" -C ${i%/*}
+  rm -i "$i"
+done
