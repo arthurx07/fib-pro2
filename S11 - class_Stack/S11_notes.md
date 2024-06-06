@@ -170,11 +170,11 @@ int *pa = &a;
 cout << a << ' ' << *pa << endl; // 3 3
 *pa = 2; // a = 2
 
-int pb = new int(); // creates a pointer to a new int element
+int *pb = new int(); // creates a pointer to a new int element
 *pb = 4;
 cout << *pb << endl; // 4
 delete pb; // frees memory which pb points to
 
-int pc = pa; // pc = &a
+int *pc = pa; // pc = &a
 cout << *pc << endl; // 2
 ```
