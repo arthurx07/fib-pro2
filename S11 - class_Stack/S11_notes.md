@@ -53,7 +53,7 @@ std::istream &operator>>(std::istream& is, const Test &t)
     return is;
 }
 
-std::ostream &operator>>(std::ostream& os, const Test &t)
+std::ostream &operator<<(std::ostream& os, const Test &t)
 {
     os << ...
     return os;
